@@ -1,0 +1,61 @@
+/* TITRE : [RESET] = Reset des réglages navigateurs */
+
+/* ###### [RESET DE BASE] ###### */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ###### [SCROLL] ###### */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ###### [RESET DE STYLE] ###### */
+/* (1) Retrait des bullet points aux listes */
+li {
+  list-style: none;
+}
+
+/* (2) Réinitialisation de la couleur de la police et retrait du soulignage */
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* (3) Images et médias (block pour le layout) */
+img,
+picture,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-style: none;
+}
+
+/* (4) Hérite de la police du parent, reset des bordures et du background */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* (5)Reset du focus natif (pas recommandé sans remplacement) */
+:focus {
+  outline: none;
+}
+/* ¤ Focus custom accessible */
+:focus-visible {
+  outline: 2px solid var(--primary-color); /* ta couleur personnalisée par exemple */
+  outline-offset: 3px;
+  transition: outline 0.3s ease;
+}

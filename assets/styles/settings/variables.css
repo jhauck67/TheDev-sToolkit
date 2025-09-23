@@ -1,0 +1,142 @@
+/* TITRE : [VARIABLES] : Variables fonts, couleurs, espacements, etc... */
+
+/* ###### TYPOGRAPHIE ###### */
+/* TODO (1) Import des fonts */
+@font-face {
+  font-family: 'Caveat';
+  src: url(../../fonts/Caveat-VariableFont_wght.ttf);
+  font-display: swap;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url(../../fonts/OpenSans-VariableFont_wdth\wght.ttf);
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Merriweather';
+  src: url(../../fonts/Merriweather-VariableFont_opsz\wdth\wght.ttf);
+  font-display: swap;
+}
+
+/* ########## COLORS ########## */
+:root {
+  /* TODO (1) Couleur de base : */
+  --hue: 111;
+  --sat: 100%;
+  --light: 54%;
+
+  /* (2) Palette des couleurs : */
+  /* ¤ Primary Color */
+  --primary-color-light: hsl(
+    var(--hue),
+    calc((2 / 3) * var(--sat)),
+    calc((2 / 3) * var(--light) + 33%)
+  );
+  --primary-color: hsl(var(--hue), var(--sat), var(--light));
+  --primary-color-dark: hsl(var(--hue), calc(50% + var(--sat) / 2), calc(var(--light) / 2));
+
+  /* ¤ Neutral */
+  --neutral0: hsl(0, 0%, 98%);
+  --neutral1: hsl(0, 0%, 79%);
+  --neutral2: hsl(0, 0%, 60%);
+  --neutral3: hsl(0, 0%, 41%);
+  --neutral4: hsl(0, 0%, 22%);
+  --neutral5: hsl(0, 0%, 3%);
+
+  /* ¤ Variation en transparence */
+  --transparent10: hsla(var(--hue), var(--sat), var(--light), 0.1); /* séparateur, ombre fine */
+  --transparent30: hsla(
+    var(--hue),
+    var(--sat),
+    var(--light),
+    0.3
+  ); /* fond de carte, bordure+visible */
+  --transparent60: hsla(
+    var(--hue),
+    var(--sat),
+    var(--light),
+    0.6
+  ); /* overlays, fond semi-transparent derrière texte, survol */
+  --transparent90: hsla(
+    var(--hue),
+    var(--sat),
+    var(--light),
+    0.9
+  ); /* effet de survol bouton/lien, actif */
+
+  /* ¤ Effets d'ombre */
+  --shadow-color: 0 10px 20px 0 hsla(var(--hue), var(--sat), var(--light), 0.15),
+    0 5px 10px 0 hsla(var(--hue), var(--sat), var(--light), 0.1),
+    0 2px 4px 1px hsla(var(--hue), var(--sat), var(--light), 0.05);
+  --shadow-black: 0 10px 20px 0 hsla(0, 0%, 22%, 0.15), 0 5px 10px 0 hsla(0, 0%, 22%, 0.1),
+    0 2px 4px 1px hsla(0, 0%, 22%, 0.05);
+  --shadow-white: 0 10px 20px 0 hsla(0, 0%, 79%, 0.15), 0 5px 10px 0 hsla(0, 0%, 79%, 0.1),
+    0 2px 4px 1px hsla(0, 0%, 79%, 0.05);
+}
+
+/* ###### AUTRES VARIABLES ###### */
+:root {
+  /* (1) Définition des espacements */
+  --spacing-xs: 0.25rem;
+  --spacing-s: 0.5rem;
+  --spacing-m: 1rem;
+  --spacing-l: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-xxl: 5rem;
+
+  /* (2) Tailles de police */
+  --font-size-xs: 0.75rem;
+  --font-size-s: 0.875rem;
+  --font-size-m: 1rem;
+  --font-size-l: 1.25rem;
+  --font-size-xl: 2rem;
+  --font-size-xxl: 3rem;
+
+  /* (3) Rayons de bordure */
+  --radius-s: 4px;
+  --radius-m: 8px;
+  --radius-l: 12px;
+
+  /* (4) Durées de transition */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* (5) Définition des breakpoints */
+  --mobile: 480px;
+  --tablet: 770px;
+  --desktop: 1024px;
+}
+
+/* ###### VARIABLES SEMANTIQUES ###### */
+/* TODO Remplir les variables sémantique au besoin */
+:root {
+  /* (1) Couleur de background : */
+  --background-color-primary: var(--neutral5);
+  --background-color-secondary: var(--neutral4);
+
+  /* (2) Typographie : */
+  --font-title: 'OpenSans', sans-serif;
+  --font-text: 'Merriweather', serif;
+  --font-cursive: 'Caveat', cursive;
+
+  /* (3) Couleur de texte */
+  --color-text-primary: var(--neutral0);
+  --color-text-secondary: var(--neutral2);
+
+  /* (4) Couleur d'interactivité */
+  /* ¤ Accentuation : */
+  --color-accent-primary: var(--primary-color);
+  --color-accent-primary-dark: var(--primary-color-dark);
+  --color-accent-primary-light: var(--primary-color-light);
+
+  /* ¤ Hover : */
+  --color-hover-button: var(--transparent90); /* effet au survol des lien et bouttons*/
+  --color-hover-button: var(--transparent60); /* effet au survol des li*/
+
+  /* ¤ Border : */
+  --color-border: var(--transparent30);
+
+  /* ¤ Light Separator */
+  --color-separator-light: var(var(--transparent10));
+}

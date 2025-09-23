@@ -1,0 +1,43 @@
+/* TITRE : [STYLE GENERAL] : Style du body, du texte, etc... */
+
+/* TODO Mettre en place les styles globaux */
+
+/* ###### Style du body ###### */
+body {
+  width: 100dvw;
+  min-height: 100dvh;
+  background: var(--background-color-primary);
+  overflow-x: hidden;
+  font-family: var(--font-text);
+  color: var(--color-text-primary);
+}
+
+/* ###### Style des liens ###### */
+a,
+a:visited {
+  display: inline-block;
+  color: var(--color-accent-primary);
+  font-family: var(--font-text);
+  transition: all var(--transition-normal);
+}
+a:hover {
+  color: var(--color-hover);
+  text-shadow: var(--shadow-color);
+  transform: scale(1.05);
+}
+
+/* ###### Style du texte ###### */
+
+/* (1) Les titres */
+
+/* ¤ Style des titres en commun */
+h1,
+h2,
+h3 {
+  color: var(--color-text-primary);
+  font-family: var(--font-title);
+}
+
+/* ¤ Style des titres en particulier */
+
+/* (2) Les paragraphes */
