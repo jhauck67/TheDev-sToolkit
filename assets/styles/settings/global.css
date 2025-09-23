@@ -1,7 +1,5 @@
 /* TITRE : [STYLE GENERAL] : Style du body, du texte, etc... */
 
-/* TODO Mettre en place les styles globaux */
-
 /* ###### Style du body ###### */
 body {
   width: 100dvw;
@@ -35,7 +33,8 @@ h1,
 h2,
 h3 {
   color: var(--color-text-primary);
-  font-family: var(--font-title);
+  font-family: var(--font-text);
+  font-weight: bold;
 }
 
 /* ¤ Style des titres en particulier */

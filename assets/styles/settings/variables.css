@@ -1,29 +1,24 @@
 /* TITRE : [VARIABLES] : Variables fonts, couleurs, espacements, etc... */
 
 /* ###### TYPOGRAPHIE ###### */
-/* TODO (1) Import des fonts */
+/* (1) Import des fonts */
 @font-face {
-  font-family: 'Caveat';
-  src: url(../../fonts/Caveat-VariableFont_wght.ttf);
+  font-family: 'FiraCode';
+  src: url(../../fonts/FiraCode-VariableFont_wght.ttf);
   font-display: swap;
 }
 @font-face {
-  font-family: 'OpenSans';
-  src: url(../../fonts/OpenSans-VariableFont_wdth\wght.ttf);
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Merriweather';
-  src: url(../../fonts/Merriweather-VariableFont_opsz\wdth\wght.ttf);
+  font-family: 'Roboto';
+  src: url(../../fonts/Roboto-VariableFont_wdth\wght.ttf);
   font-display: swap;
 }
 
 /* ########## COLORS ########## */
 :root {
-  /* TODO (1) Couleur de base : */
-  --hue: 111;
+  /* (1) Couleur de base : */
+  --hue: 179;
   --sat: 100%;
-  --light: 54%;
+  --light: 40%;
 
   /* (2) Palette des couleurs : */
   /* ¤ Primary Color */
@@ -109,16 +104,13 @@
 }
 
 /* ###### VARIABLES SEMANTIQUES ###### */
-/* TODO Remplir les variables sémantique au besoin */
 :root {
   /* (1) Couleur de background : */
-  --background-color-primary: var(--neutral5);
-  --background-color-secondary: var(--neutral4);
+  --background-color-primary: var(--neutral4);
 
   /* (2) Typographie : */
-  --font-title: 'OpenSans', sans-serif;
-  --font-text: 'Merriweather', serif;
-  --font-cursive: 'Caveat', cursive;
+  --font-text: 'Roboto', sans-serif;
+  --font-code: 'FiraCode', monospace;
 
   /* (3) Couleur de texte */
   --color-text-primary: var(--neutral0);

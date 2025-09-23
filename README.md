@@ -1,6 +1,6 @@
 <div align="center">
-  <h1>🚀 Nom du Projet</h1>
-  <p>Une application web interactive et responsive</p>
+  <h1>🚀 The Dev's Toolkit</h1>
+  <p>Un espace personnel pour organiser et visualiser mes snippets de code, palettes de couleurs, polices, et SVGs.</p>
   
   <p align="center">
     <img src="https://img.shields.io/badge/HTML-%23E34F26.svg?style=flat&logo=html5&logoColor=white" />
@@ -10,24 +10,20 @@
   </p>
   
   <p>
-  <!-- TODO Modifier le chemin de l'ancre -->
     <a href="./index.html">Voir la démo</a> •
     <a href="#-présentation-rapide">Présentation projet</a> •
     <a href="#-ce-que-jai-appris">Ce que j'ai appris</a> •
     <a href="#-à-propos-de-lautrice">À propos</a>
   </p>
   
+  <!-- TODO Modifier le chemin de l'ancre -->
   <img src="./assets/sketch/screenshot.png" alt="Aperçu du projet" width="600" />
 </div>
 
 ## 🧩 Présentation rapide
 
-Petit projet codé avec amour 💻✨  
-Objectif : **[décrire le but du projet]**  
-Contexte : **[formation, défi, tuto, perso...]**  
-Contraintes : **[design imposé, responsive, animations, etc.]**
+The Dev's Toolkit est un projet inspiré de CodePen, conçu pour centraliser et organiser mes ressources de développement (snippets de code, palettes de couleurs, polices, et SVGs). Ce projet me sert également de terrain d’apprentissage pour JavaScript, en explorant la manipulation de données JSON, la création d’interfaces dynamiques, et les bonnes pratiques de développement front-end.
 
-<!-- TODO Modifier le chemin de l'ancre -->
 🔗 [Voir la démo dans le navigateur](./index.html)
 
 ## 🖼️ Aperçu
@@ -37,15 +33,15 @@ Contraintes : **[design imposé, responsive, animations, etc.]**
 
 ## 🔧 Technologies utilisées
 
-- HTML5 sémantique
-- SASS (Mixins, variables,...)
+- HTML/CSS : Structure et style de l’interface.
+- JavaScript : Logique dynamique pour charger et manipuler les données.
+- JSON : Stockage des données (snippets, couleurs, polices, SVGs).
 
 ## ✅ Ce que j’ai appris
 
-- [x] Mieux structurer mon HTML
-- [x] Utiliser Flexbox / Grid sans pleurer
-- [x] Gérer les effets au survol (hover / transitions)
-- [x] Découvrir les améliorations de performances
+- [ ] Apprendre à manipuler des fichiers JSON en JavaScript.
+- [ ] Créer une interface utilisateur dynamique et réactive.
+- [ ] Comprendre les bonnes pratiques de structuration de projet.
 
 ## 🛠️ À améliorer plus tard
 
