@@ -55,13 +55,13 @@ const cardGenerator = (snippetsArray, container) => {
     });
 };
 
-// TITRE : [CARDS RESULTS] = Remplissage de la div .grid-results //
+// TITRE : [CARDS RESULTS] = Remplissage de la div .grid-results, Filtrage et Tri //
 const cardContainer = document.querySelector('.grid-results');
 
 
 // ###### [FETCH JSON] = Récupérer les données ###### //
 export const getSnippetsData = () => {
-    fetch('/assets/data/snippets.json')
+    fetch('https://raw.githubusercontent.com/jhauck67/TheDev-sToolkit/refs/heads/main/assets/data/snippets.json')
     .then(response => response.json())
     .then(data => {
         
@@ -75,6 +75,39 @@ export const getSnippetsData = () => {
         
         // (2) On appelle la fonction de génération
         cardGenerator(data.snippets, cardContainer);
+
+
+        // ###### [SEARCH BAR] = Recherche de snippets ###### //
+
+        // (1) On pointe la search bar.
+        const searchBar = document.getElementById('search-bar');
+
+        // (2) On "écoute" et on récupère ce qui est tapé.
+        searchBar.addEventListener('input', (e) => {
+        let searchInput = e.target.value.toLowerCase();
+        console.log(searchInput);
+
+            // (3) On filtre les snippets dans la base de données.
+            const filteredSnippets = data.snippets.filter(snippet => {
+                const matchesName = snippet.snippetName.toLowerCase().includes(searchInput);
+                const matchesLanguage = snippet.snippetLanguage.toLowerCase().includes(searchInput);
+                const matchesCategory = snippet.snippetCategory.toLowerCase().includes(searchInput);
+                return matchesName || matchesLanguage || matchesCategory;
+            });
+
+            // (4) On vérifie s'il y a des valeurs
+            if (!filteredSnippets || filteredSnippets.length === 0) {
+                cardContainer.innerHTML = '';
+                const noResult = elementCreator('div', 'no-result');
+                noResult.textContent = "Aucun snippet n'a été trouvé";
+                cardContainer.appendChild(noResult);
+                return; // On arrête l'exécution si aucun snippet
+            };
+
+            // (5) On met à jour l'affichage.
+            cardContainer.innerHTML = '';
+            cardGenerator(filteredSnippets, cardContainer);
+        });
     })
     .catch(error => console.error('Erreur de chargement du JSON : ', error));
 };
@@ -108,5 +141,6 @@ const gridOrInlineDisplay = () => {
     });
 };
 gridOrInlineDisplay();
+
 
 
