@@ -6,37 +6,39 @@ body {
   min-height: 100dvh;
   background: var(--background-color-primary);
   overflow-x: hidden;
+  overflow-y: auto;
   font-family: var(--font-text);
+  letter-spacing: 1px;
   color: var(--color-text-primary);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 80px 1fr 160px;
+  grid-template-areas:
+    'sb he'
+    'sb ma'
+    'sb fo';
 }
 
 /* ###### Style des liens ###### */
 a,
 a:visited {
   display: inline-block;
-  color: var(--color-accent-primary);
+  color: var(--color-accent-primary-light);
   font-family: var(--font-text);
   transition: all var(--transition-normal);
-}
-a:hover {
-  color: var(--color-hover);
-  text-shadow: var(--shadow-color);
-  transform: scale(1.05);
 }
 
 /* ###### Style du texte ###### */
 
-/* (1) Les titres */
-
-/* ¤ Style des titres en commun */
-h1,
-h2,
-h3 {
-  color: var(--color-text-primary);
-  font-family: var(--font-text);
-  font-weight: bold;
+/* (1) Texte invisible */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
-
-/* ¤ Style des titres en particulier */
-
-/* (2) Les paragraphes */

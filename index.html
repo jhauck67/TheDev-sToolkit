@@ -71,10 +71,162 @@
 
   <!-- TITRE : [BODY] : Début du site -->
   <body>
-    <nav></nav>
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <!-- # Sidebar -->
+    <aside class="sidebar">
+      <!-- (1) Logo -->
+      <h1>
+        <img
+          src="./assets/img/icons/brandIcons/logo-code-horizontal-noir.svg"
+          alt="logo horizontal de The Dev's Toolkit Code"
+          class="logo-horizontal"
+          width="200"
+          height="100"
+        />
+        <span class="visually-hidden">The Dev's Toolkit - Mon espace code & design</span>
+      </h1>
+      <!-- (2) Onglets -->
+      <div class="sidebar-section tabs">
+        <h2 class="section-title">Tabs</h2>
+        <div class="separator" aria-hidden="true"></div>
+        <ul>
+          <li><a href="#">Code Snippets</a></li>
+          <li><a href="./assets/pages/design.html">Design</a></li>
+          <li><a href="./assets/pages/web-tools.html">Web Tools</a></li>
+        </ul>
+      </div>
+      <!-- (3) Liens -->
+      <div class="sidebar-section links">
+        <h2 class="section-title">Links</h2>
+        <div class="separator" aria-hidden="true"></div>
+        <ul>
+          <li>
+            <a href="https://codepen.io/your-work" rel="noopener noreferrer" target="_blank">
+              CodePen
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/jhauck67" rel="noopener noreferrer" target="_blank">
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href="https://fonts.google.com/" rel="noopener noreferrer" target="_blank">
+              GoogleFonts
+            </a>
+          </li>
+          <li>
+            <a href="https://coolors.co/" rel="noopener noreferrer" target="_blank">Coolors</a>
+          </li>
+          <li>
+            <a
+              href="https://color.adobe.com/fr/create/color-wheel"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Adobe Color
+            </a>
+          </li>
+          <li>
+            <a href="https://simpleicons.org/" rel="noopener noreferrer" target="_blank">
+              Simple Icons
+            </a>
+          </li>
+          <li>
+            <a href="https://www.svgrepo.com/" rel="noopener noreferrer" target="_blank">
+              SVG Repo
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+    <!-- # Header : Navigation et Recherche -->
+    <header>
+      <h2 class="visually-hidden">Scripts et Snippets</h2>
+      <!-- (1) Navigation -->
+      <nav class="navbar" aria-label="Navigation principale">
+        <ul>
+          <li class="active"><a href="#">Code Snippets</a></li>
+          <li><a href="./assets/pages/design.html">Design</a></li>
+          <li><a href="./assets/pages/web-tools.html">Web Tools</a></li>
+        </ul>
+      </nav>
+      <!-- (2) Search Bar -->
+      <div class="search-bar">
+        <input type="search" aria-label="barre de recherche de code snippets" id="search-bar" />
+      </div>
+      <!-- (3) Profile -->
+      <div class="profile">
+        <div class="profile-text">
+          <p>by Jhauck67</p>
+          <a href="https://github.com/jhauck67/" rel="noopener noreferrer" target="_blank">
+            github.com/jhauck67
+          </a>
+        </div>
+        <div class="profile-img">
+          <img
+            src="./assets/img/icons/brandIcons/icon-JHauck67.svg"
+            alt="Logo de Jhauck67"
+            width="50"
+            height="50"
+          />
+        </div>
+      </div>
+    </header>
+    <!-- # Main : Filter/Sort Bar et Grille -->
+    <main>
+      <!-- (1) Filter/Sort Bar -->
+      <div class="filter-sort-bar">
+        <div>
+          <!-- ¤ Filter buttons -->
+          <fieldset class="filter-buttons">
+            <legend class="visually-hidden">Filtres par langage</legend>
+            <button aria-label="Filtrer par HTML/CSS">HTML/CSS</button>
+            <button aria-label="Filtrer par Javascript">Javascript</button>
+          </fieldset>
+        </div>
+        <div>
+          <!-- ¤ Display buttons -->
+          <fieldset class="display-buttons">
+            <legend class="visually-hidden">Affichage en grille ou en ligne</legend>
+            <button aria-label="Afficher en grille">grid</button>
+            <button aria-label="Afficher en ligne">inline</button>
+          </fieldset>
+          <!-- ¤ Sort select -->
+          <div class="sort-select">
+            <select id="sort-select" aria-label="Trier les résutats par">
+              <option value="" aria-hidden="true" selected disabled>Sort by</option>
+              <option value="created">Date created</option>
+              <option value="alphabet">Alphabetical</option>
+              <optgroup label="Category">
+                <option value="navbar">Navbar</option>
+                <option value="gallery">Gallery</option>
+                <option value="animation">Animation</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- (2) Grid Results -->
+      <div class="grid-results"></div>
+    </main>
+    <!-- # Footer -->
+    <footer>
+      <div class="footer-container">
+        <img
+          src="./assets/img/icons/brandIcons/logo-code-horizontal-noir.svg"
+          alt="logo horizontal de The Dev's Toolkit Code"
+          class="logo-horizontal"
+          width="200"
+          height="100"
+        />
+        <p>
+          &copy;
+          <span class="current-year">2025</span>
+          The Dev's Toolkit
+        </p>
+        <p>Tous droits réservés</p>
+      </div>
+    </footer>
     <!-- TITRE : [SCRIPT JS] -->
     <script type="module" src="./assets/scripts/index.js"></script>
   </body>

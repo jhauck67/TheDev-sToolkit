@@ -51,7 +51,9 @@ textarea {
 
 /* (5)Reset du focus natif (pas recommandé sans remplacement) */
 :focus {
-  outline: none;
+  outline: 2px solid var(--primary-color);
+  outline-offset: 3px;
+  transition: outline 0.3s ease;
 }
 /* ¤ Focus custom accessible */
 :focus-visible {

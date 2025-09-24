@@ -1,0 +1,98 @@
+/* # Sidebar */
+.sidebar {
+  grid-area: sb;
+  background: var(--neutral3-5);
+  display: flex;
+  flex-direction: column;
+}
+
+/* (2+3) Onglets + Liens */
+.sidebar-section {
+  margin: var(--spacing-m);
+}
+.section-title {
+  text-transform: uppercase;
+  font-size: var(--font-size-s);
+}
+.separator {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color-dark) 0%,
+    var(--primary-color) 25%,
+    var(--primary-color-light) 50%,
+    var(--primary-color) 75%,
+    var(--primary-color-dark) 100%
+  );
+  margin: var(--spacing-xs) 0 var(--spacing-s);
+}
+.sidebar-section ul li {
+  padding: var(--spacing-s);
+  transition: all var(--transition-normal);
+}
+.sidebar-section ul li:hover {
+  background: linear-gradient(90deg, transparent, var(--color-hover-link), transparent);
+}
+.sidebar-section ul li:hover a {
+  color: var(--color-text-primary);
+  transform: scale(1.05);
+}
+
+/* # Header : Navigation et Recherche */
+header {
+  grid-area: he;
+  background: var(--neutral5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* (1) Navigation */
+.navbar ul {
+  display: flex;
+  align-items: center;
+}
+
+/* (2) Search bar */
+.search-bar {
+  background: var(--neutral3-5);
+  border-radius: var(--radius-s);
+}
+
+/* (3) Profile */
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+/* # Main : Filter/Sort et Grille */
+main {
+  grid-area: ma;
+}
+
+/* (1) Filter/Sort Bar */
+.filter-sort-bar {
+  width: 90%;
+  margin: var(--spacing-l) auto;
+  max-width: 1080px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.filter-sort-bar div {
+  display: flex;
+  align-items: center;
+}
+
+/* # Footer */
+footer {
+  grid-area: fo;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.footer-container {
+  text-align: center;
+}

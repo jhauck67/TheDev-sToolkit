@@ -31,12 +31,13 @@
   --primary-color-dark: hsl(var(--hue), calc(50% + var(--sat) / 2), calc(var(--light) / 2));
 
   /* ¤ Neutral */
-  --neutral0: hsl(0, 0%, 98%);
-  --neutral1: hsl(0, 0%, 79%);
-  --neutral2: hsl(0, 0%, 60%);
-  --neutral3: hsl(0, 0%, 41%);
-  --neutral4: hsl(0, 0%, 22%);
-  --neutral5: hsl(0, 0%, 3%);
+  --neutral0: hsl(var(--hue), 5%, 98%);
+  --neutral1: hsl(var(--hue), 5%, 79%);
+  --neutral2: hsl(var(--hue), 5%, 60%);
+  --neutral3: hsl(var(--hue), 5%, 41%);
+  --neutral3-5: hsl(var(--hue), 5%, 32%);
+  --neutral4: hsl(var(--hue), 5%, 22%);
+  --neutral5: hsl(var(--hue), 5%, 3%);
 
   /* ¤ Variation en transparence */
   --transparent10: hsla(var(--hue), var(--sat), var(--light), 0.1); /* séparateur, ombre fine */
@@ -124,7 +125,7 @@
 
   /* ¤ Hover : */
   --color-hover-button: var(--transparent90); /* effet au survol des lien et bouttons*/
-  --color-hover-button: var(--transparent60); /* effet au survol des li*/
+  --color-hover-link: var(--transparent60); /* effet au survol des li*/
 
   /* ¤ Border : */
   --color-border: var(--transparent30);
