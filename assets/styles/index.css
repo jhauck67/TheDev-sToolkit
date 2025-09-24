@@ -1,7 +1,7 @@
 /* # Sidebar */
 .sidebar {
   grid-area: sb;
-  background: var(--neutral3-5);
+  background: var(--neutral4);
   display: flex;
   flex-direction: column;
 }
@@ -34,6 +34,7 @@
 /* Hover */
 .sidebar-section ul li:hover {
   background: linear-gradient(90deg, transparent, var(--color-hover-link), transparent);
+  border-radius: var(--radius-s);
 }
 .sidebar-section ul li:hover a {
   color: var(--color-text-primary);
@@ -58,7 +59,7 @@ header {
   gap: 1px;
 }
 .navbar ul li {
-  background: var(--neutral3-5);
+  background: var(--neutral4);
   padding: var(--spacing-s) var(--spacing-m);
   position: relative;
   transition: all var(--transition-normal);
@@ -75,7 +76,7 @@ header {
 }
 /* Effet hover */
 .navbar ul li:hover {
-  background: var(--neutral4);
+  background: var(--neutral4-5);
 }
 .navbar ul li:hover::after {
   content: '';
@@ -88,12 +89,12 @@ header {
 }
 /* ¤ Style de l'onglet actif */
 .navbar ul li.active {
-  background: var(--neutral2);
+  background: var(--neutral3-5);
   position: relative;
   overflow: hidden;
 }
 .navbar ul li.active a {
-  color: var(--color-accent-primary-dark);
+  color: var(--color-accent-primary);
 }
 .navbar ul li.active::after {
   content: '';
@@ -114,7 +115,7 @@ header {
 
 /* (2) Search bar */
 .search-bar {
-  background: var(--neutral3-5);
+  background: var(--neutral4);
   border-radius: var(--radius-m);
   padding: var(--spacing-xs) var(--spacing-m);
   display: flex;
@@ -130,7 +131,7 @@ header {
   font-weight: bold;
 }
 #search-bar:focus {
-  outline: 2px solid var(--primary-color);
+  outline: 1px solid var(--primary-color);
   outline-offset: 3px;
   transition: outline 0.3s ease;
 }
@@ -158,9 +159,12 @@ main {
 
 /* (1) Filter/Sort Bar */
 .filter-sort-bar {
-  width: 90%;
+  width: 80%;
   margin: var(--spacing-l) auto;
   max-width: 1080px;
+  background: var(--neutral4);
+  padding: var(--spacing-s) var(--spacing-m);
+  border-radius: var(--radius-s);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -168,11 +172,113 @@ main {
 .filter-sort-bar div {
   display: flex;
   align-items: center;
+  gap: var(--spacing-l);
+}
+fieldset {
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-s);
+}
+fieldset button {
+  background: var(--neutral3-5);
+  padding: var(--spacing-xs) var(--spacing-s);
+  border-radius: var(--radius-s);
+  font-weight: bold;
+  color: var(--neutral1);
+  transition: all var(--transition-normal);
+}
+fieldset button:hover {
+  background-color: var(--neutral4-5);
+}
+.filter-buttons button.filteredby {
+  background: var(--neutral3);
+  position: relative;
+  overflow: hidden;
+  color: var(--color-accent-primary);
+}
+.filter-buttons button.filteredby::after {
+  content: '';
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color-dark) 0%,
+    var(--primary-color) 25%,
+    var(--primary-color-light) 50%,
+    var(--primary-color) 75%,
+    var(--primary-color-dark) 100%
+  );
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.display-buttons button {
+  width: 36px;
+  height: 36px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.display-buttons svg {
+  width: 100%;
+  height: auto;
+}
+.display-buttons button.displayed {
+  background: var(--neutral3);
+  position: relative;
+  overflow: hidden;
+}
+.display-buttons button.displayed::after {
+  content: '';
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color-dark) 0%,
+    var(--primary-color) 25%,
+    var(--primary-color-light) 50%,
+    var(--primary-color) 75%,
+    var(--primary-color-dark) 100%
+  );
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.display-buttons button.displayed svg {
+  fill: var(--color-accent-primary) !important;
+}
+#sort-select {
+  background: var(--neutral3-5);
+  padding: var(--spacing-xs) var(--spacing-s);
+  border-radius: var(--radius-s);
+  font-weight: bold;
+  color: var(--neutral1);
+  transition: all var(--transition-normal);
+}
+#sort-select:focus {
+  outline: 1px solid var(--primary-color);
+  outline-offset: 3px;
+  transition: outline 0.3s ease;
+}
+/* (2) Grid Result */
+.grid-results {
+  width: 80%;
+  margin: var(--spacing-l) auto;
+  max-width: 1080px;
+  background: var(--neutral4);
+  padding: var(--spacing-s) var(--spacing-m);
+  border-radius: var(--radius-s);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* # Footer */
 footer {
   grid-area: fo;
+  background: var(--neutral5);
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -37,6 +37,7 @@
   --neutral3: hsl(var(--hue), 5%, 41%);
   --neutral3-5: hsl(var(--hue), 5%, 32%);
   --neutral4: hsl(var(--hue), 5%, 22%);
+  --neutral4-5: hsl(var(--hue), 5%, 13%);
   --neutral5: hsl(var(--hue), 5%, 3%);
 
   /* ¤ Variation en transparence */
@@ -108,7 +109,7 @@
 /* ###### VARIABLES SEMANTIQUES ###### */
 :root {
   /* (1) Couleur de background : */
-  --background-color-primary: var(--neutral4);
+  --background-color-primary: var(--neutral4-5);
 
   /* (2) Typographie : */
   --font-text: 'Roboto', sans-serif;

@@ -200,8 +200,49 @@
           <!-- ¤ Display buttons -->
           <fieldset class="display-buttons">
             <legend class="visually-hidden">Affichage en grille ou en ligne</legend>
-            <button aria-label="Afficher en grille">grid</button>
-            <button aria-label="Afficher en ligne">inline</button>
+            <button aria-label="Afficher en grille" class="displayed">
+              <svg
+                width="32"
+                height="20"
+                viewBox="0 0 32 20"
+                fill="inherit"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_2103_744)">
+                  <rect width="8" height="8" fill="inherit" />
+                  <rect y="12" width="8" height="8" fill="inherit" />
+                  <rect x="12" width="8" height="8" fill="inherit" />
+                  <rect x="12" y="12" width="8" height="8" fill="inherit" />
+                  <rect x="24" width="8" height="8" fill="inherit" />
+                  <rect x="24" y="12" width="8" height="8" fill="inherit" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_2103_744">
+                    <rect width="32" height="20" fill="inherit" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
+            <button aria-label="Afficher en ligne">
+              <svg
+                width="30"
+                height="20"
+                viewBox="0 0 30 20"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_2103_754)">
+                  <rect width="30" height="4" fill="currentColor" />
+                  <rect y="8" width="30" height="4" fill="currentColor" />
+                  <rect y="16" width="30" height="4" fill="currentColor" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_2103_754">
+                    <rect width="30" height="20" fill="currentColor" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </button>
           </fieldset>
           <!-- ¤ Sort select -->
           <div class="sort-select">
@@ -219,7 +260,7 @@
         </div>
       </div>
       <!-- (2) Grid Results -->
-      <div class="grid-results"></div>
+      <div class="grid-results">Aucun resultat</div>
     </main>
     <!-- # Footer -->
     <footer>
