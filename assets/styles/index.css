@@ -325,7 +325,7 @@ fieldset button:hover {
   width: 100%;
   height: auto;
   aspect-ratio: 3/2;
-  background: url(../img/pictures/page-projet-apercu.webp) center/cover;
+  background: var(--card-img);
 }
 /* Inline-display */
 .inline-display .card-img {
