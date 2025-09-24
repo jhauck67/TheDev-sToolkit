@@ -48,16 +48,3 @@ textarea {
   background: none;
   cursor: pointer;
 }
-
-/* (5)Reset du focus natif (pas recommandé sans remplacement) */
-:focus {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 3px;
-  transition: outline 0.3s ease;
-}
-/* ¤ Focus custom accessible */
-:focus-visible {
-  outline: 2px solid var(--primary-color); /* ta couleur personnalisée par exemple */
-  outline-offset: 3px;
-  transition: outline 0.3s ease;
-}

@@ -74,11 +74,12 @@
 :root {
   /* (1) Définition des espacements */
   --spacing-xs: 0.25rem;
-  --spacing-s: 0.5rem;
+  --spacing-xs: 0.5rem;
+  --spacing-s: 0.75rem;
   --spacing-m: 1rem;
-  --spacing-l: 2rem;
-  --spacing-xl: 3rem;
-  --spacing-xxl: 5rem;
+  --spacing-l: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
 
   /* (2) Tailles de police */
   --font-size-xs: 0.75rem;

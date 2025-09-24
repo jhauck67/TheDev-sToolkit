@@ -31,6 +31,7 @@
   padding: var(--spacing-s);
   transition: all var(--transition-normal);
 }
+/* Hover */
 .sidebar-section ul li:hover {
   background: linear-gradient(90deg, transparent, var(--color-hover-link), transparent);
 }
@@ -46,24 +47,108 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 var(--spacing-m);
 }
 
 /* (1) Navigation */
+/* ¤ Style des onglets */
 .navbar ul {
   display: flex;
   align-items: center;
+  gap: 1px;
+}
+.navbar ul li {
+  background: var(--neutral3-5);
+  padding: var(--spacing-s) var(--spacing-m);
+  position: relative;
+  transition: all var(--transition-normal);
+}
+.navbar ul li:nth-child(1) {
+  border-radius: var(--radius-m) 0 0 var(--radius-m);
+}
+.navbar ul li:nth-child(3) {
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+}
+.navbar ul li a {
+  font-weight: bold;
+  color: var(--color-text-primary);
+}
+/* Effet hover */
+.navbar ul li:hover {
+  background: var(--neutral4);
+}
+.navbar ul li:hover::after {
+  content: '';
+  width: 100%;
+  height: 3px;
+  background: var(--neutral1);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+/* ¤ Style de l'onglet actif */
+.navbar ul li.active {
+  background: var(--neutral2);
+  position: relative;
+  overflow: hidden;
+}
+.navbar ul li.active a {
+  color: var(--color-accent-primary-dark);
+}
+.navbar ul li.active::after {
+  content: '';
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color-dark) 0%,
+    var(--primary-color) 25%,
+    var(--primary-color-light) 50%,
+    var(--primary-color) 75%,
+    var(--primary-color-dark) 100%
+  );
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 /* (2) Search bar */
 .search-bar {
   background: var(--neutral3-5);
-  border-radius: var(--radius-s);
+  border-radius: var(--radius-m);
+  padding: var(--spacing-xs) var(--spacing-m);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+#search-bar {
+  color: var(--color-text-primary);
+  font-weight: bold;
+}
+#search-bar::placeholder {
+  color: var(--neutral0);
+  font-weight: bold;
+}
+#search-bar:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 3px;
+  transition: outline 0.3s ease;
 }
 
 /* (3) Profile */
 .profile {
   display: flex;
   align-items: center;
+  gap: var(--spacing-xs);
+}
+.profile-text {
+  text-align: right;
+}
+.profile-text a {
+  transition: all var(--transition-normal);
+}
+.profile-text a:hover {
+  transform: scale(1.05);
 }
 
 /* # Main : Filter/Sort et Grille */
