@@ -26,6 +26,7 @@
     var(--primary-color-dark) 100%
   );
   margin: var(--spacing-xs) 0 var(--spacing-s);
+  box-shadow: var(--shadow-color);
 }
 .sidebar-section ul li {
   padding: var(--spacing-s);
@@ -49,6 +50,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--spacing-m);
+  box-shadow: var(--shadow-black);
 }
 
 /* (1) Navigation */
@@ -63,6 +65,7 @@ header {
   padding: var(--spacing-s) var(--spacing-m);
   position: relative;
   transition: all var(--transition-normal);
+  box-shadow: var(--shadow-color);
 }
 .navbar ul li:nth-child(1) {
   border-radius: var(--radius-m) 0 0 var(--radius-m);
@@ -117,6 +120,7 @@ header {
 .search-bar {
   background: var(--neutral4);
   border-radius: var(--radius-m);
+  box-shadow: var(--shadow-color);
   padding: var(--spacing-xs) var(--spacing-m);
   display: flex;
   align-items: center;
@@ -163,6 +167,7 @@ main {
   margin: var(--spacing-l) auto;
   max-width: 1080px;
   background: var(--neutral4);
+  box-shadow: var(--shadow-color);
   padding: var(--spacing-s) var(--spacing-m);
   border-radius: var(--radius-s);
   display: flex;
@@ -182,20 +187,25 @@ fieldset {
 }
 fieldset button {
   background: var(--neutral3-5);
+  box-shadow: var(--shadow-black);
   padding: var(--spacing-xs) var(--spacing-s);
   border-radius: var(--radius-s);
   font-weight: bold;
   color: var(--neutral1);
   transition: all var(--transition-normal);
 }
+/* Hover */
 fieldset button:hover {
   background-color: var(--neutral4-5);
 }
+/* ¤ Filter button */
+/* Bouton actif : application de la classe .filteredby */
 .filter-buttons button.filteredby {
   background: var(--neutral3);
   position: relative;
   overflow: hidden;
   color: var(--color-accent-primary);
+  box-shadow: var(--shadow-color);
 }
 .filter-buttons button.filteredby::after {
   content: '';
@@ -213,6 +223,7 @@ fieldset button:hover {
   bottom: 0;
   left: 0;
 }
+/* ¤ Display button */
 .display-buttons button {
   width: 36px;
   height: 36px;
@@ -225,10 +236,12 @@ fieldset button:hover {
   width: 100%;
   height: auto;
 }
+/* Bouton actif : application de la classe .displayed */
 .display-buttons button.displayed {
   background: var(--neutral3);
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-color);
 }
 .display-buttons button.displayed::after {
   content: '';
@@ -249,8 +262,10 @@ fieldset button:hover {
 .display-buttons button.displayed svg {
   fill: var(--color-accent-primary) !important;
 }
+/* ¤ Sort select */
 #sort-select {
   background: var(--neutral3-5);
+  box-shadow: var(--shadow-black);
   padding: var(--spacing-xs) var(--spacing-s);
   border-radius: var(--radius-s);
   font-weight: bold;
@@ -260,19 +275,85 @@ fieldset button:hover {
 #sort-select:focus {
   outline: 1px solid var(--primary-color);
   outline-offset: 3px;
+  box-shadow: var(--shadow-color);
   transition: outline 0.3s ease;
 }
 /* (2) Grid Result */
 .grid-results {
   width: 80%;
-  margin: var(--spacing-l) auto;
+  margin: var(--spacing-xl) auto;
   max-width: 1080px;
   background: var(--neutral4);
-  padding: var(--spacing-s) var(--spacing-m);
+  box-shadow: var(--shadow-color);
+  padding: var(--spacing-l);
   border-radius: var(--radius-s);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--spacing-l);
+}
+/* Inline-display */
+.grid-results.inline-display {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+}
+/* ¤ Card */
+.card {
+  max-width: 300px;
+  margin: 0 auto;
+  background: var(--neutral3-5);
+  border-radius: var(--radius-s);
+  box-shadow: var(--shadow-black);
+  padding: var(--spacing-l);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-l);
+  cursor: pointer;
+}
+/* Hover */
+.card:hover {
+  transform: scale(1.05);
+}
+/* Inline-display */
+.inline-display .card {
+  flex-direction: row;
+  width: 100%;
+  max-width: 1080px;
+}
+.card-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/2;
+  background: url(../img/pictures/page-projet-apercu.webp) center/cover;
+}
+/* Inline-display */
+.inline-display .card-img {
+  display: none;
+}
+.card-text {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: var(--spacing-m);
+  font-weight: bold;
+}
+/* Inline-display */
+.inline-display .card-text {
+  flex-direction: row;
+  align-items: center;
+}
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-s);
+}
+.tag {
+  background: var(--neutral4);
+  padding: var(--spacing-xs) var(--spacing-s);
+  border-radius: var(--radius-s);
 }
 
 /* # Footer */
