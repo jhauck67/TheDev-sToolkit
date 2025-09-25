@@ -152,6 +152,66 @@ export const getSnippetsData = () => {
             cardContainer.innerHTML = '';
             cardGenerator(filteredSnippets, cardContainer);
         });
+
+
+        // ###### [SELECTEUR DE TRI] = Trier par ordre alphabetique, par date ou par catégorie ###### //
+
+        // (1) On pointe les boutons.
+        const selectFilter = document.getElementById('sort-select');
+        
+        // (2) On écoute l'événement au click.
+        selectFilter.addEventListener('change', (e) => {
+            console.log(e.target.value);
+            
+            // (3) On trie les snippets dans la base de données.
+            let sortedSnippets = [];
+            // ¤ Par date : du plus récent au plus ancien
+            if(e.target.value === "created") {
+                // Date Converter
+                const dateConverter = (dateString) => {
+                    const [day, month, year] = dateString.split('/');
+                    return new Date (`${year}/${month}/${day}`);
+                };
+                sortedSnippets = data.snippets.slice().sort((a, b) => {
+                    const dateA = dateConverter(a.snippetDate);
+                    const dateB = dateConverter(b.snippetDate);
+                    return dateB - dateA;
+                });
+            // ¤ Par ordre alphabétique
+            } else if(e.target.value === "alphabet") {
+                sortedSnippets = data.snippets.slice().sort((a, b) => {
+                    return a.snippetName.localeCompare(b.snippetName);
+                });
+            // ¤ Par la catégorie : Navbar
+            } else if (e.target.value === "navbar") {
+                sortedSnippets = data.snippets.filter(snippet => {
+                    return snippet.snippetCategory.includes("Navbar");
+                });
+            // ¤ Par la catégorie : Gallery
+            } else if (e.target.value === "gallery") {
+                sortedSnippets = data.snippets.filter(snippet => {
+                    return snippet.snippetCategory.includes("Gallery");
+                });
+            // ¤ Par la catégorie : Animation
+            } else if (e.target.value === "animation") {
+                sortedSnippets = data.snippets.filter(snippet => {
+                    return snippet.snippetCategory.includes("Animation");
+                });
+            }
+
+            // (4) On vérifie s'il y a des valeurs
+            if (!sortedSnippets || sortedSnippets.length === 0) {
+                cardContainer.innerHTML = '';
+                const noResult = elementCreator('div', 'no-result');
+                noResult.textContent = "Aucun snippet n'a été trouvé";
+                cardContainer.appendChild(noResult);
+                return; // On arrête l'exécution si aucun snippet
+            };
+
+            // (5) On met à jour l'affichage.
+            cardContainer.innerHTML = '';
+            cardGenerator(sortedSnippets, cardContainer);
+        });
         
     })
     .catch(error => console.error('Erreur de chargement du JSON : ', error));
