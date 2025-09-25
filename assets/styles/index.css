@@ -235,7 +235,9 @@ fieldset button:hover {
 .display-buttons svg {
   width: 100%;
   height: auto;
+  fill: var(--color-text-primary);
 }
+
 /* Bouton actif : application de la classe .displayed */
 .display-buttons button.displayed {
   background: var(--neutral3);
