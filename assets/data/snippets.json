@@ -1,28 +1,28 @@
 {
     "snippets": [
         {
-            "snippetName": "Nom du snippet1",
+            "snippetName": "A Nom du snippet1",
             "snippetLanguage": "HTML/CSS",
             "snippetDate": "01/02/2025",
             "snippetCategory": "Navbar",
             "snippetScreenshot": "nom-du-projet.webp"
         },
         {
-            "snippetName": "Nom du snippet2",
+            "snippetName": "C Nom du snippet2",
             "snippetLanguage": "HTML/CSS",
             "snippetDate": "03/01/2025",
             "snippetCategory": "Gallery",
             "snippetScreenshot": "nom-du-projet.webp"
         },
         {
-            "snippetName": "Nom du snippet3",
+            "snippetName": "B Nom du snippet3",
             "snippetLanguage": "Javascript",
             "snippetDate": "02/01/2025",
             "snippetCategory": "Navbar",
             "snippetScreenshot": "nom-du-projet.webp"
         },
         {
-            "snippetName": "Nom du snippet4",
+            "snippetName": "D Nom du snippet4",
             "snippetLanguage": "HTML/CSS",
             "snippetDate": "01/03/2025",
             "snippetCategory": "Animation",

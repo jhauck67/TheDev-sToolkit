@@ -85,7 +85,6 @@ export const getSnippetsData = () => {
         // (2) On "écoute" et on récupère ce qui est tapé.
         searchBar.addEventListener('input', (e) => {
         let searchInput = e.target.value.toLowerCase();
-        console.log(searchInput);
 
             // (3) On filtre les snippets dans la base de données.
             const filteredSnippets = data.snippets.filter(snippet => {
@@ -106,8 +105,54 @@ export const getSnippetsData = () => {
 
             // (5) On met à jour l'affichage.
             cardContainer.innerHTML = '';
+            htmlFilterButton.classList.remove('filteredby');
+            javascriptFilterButton.classList.remove('filteredby');
             cardGenerator(filteredSnippets, cardContainer);
         });
+
+
+        // ###### [FILTRER PAR LANGUAGE] = Filtrer par appui sur un bouton de la barre de filtre/tri ###### //
+
+        // (1) On pointe les boutons.
+        const htmlFilterButton = document.getElementById('html-filter');
+        const javascriptFilterButton = document.getElementById('javascript-filter');
+        
+        // (2) On écoute l'événement au click.
+        const filterButtons = document.querySelector('.filter-buttons')
+        filterButtons.addEventListener('click', (e) => {
+
+            // (3) On filtre les snippets dans la base de données.
+            let filteredSnippets = [];
+            if(e.target.closest('button') == htmlFilterButton) {
+                filteredSnippets = data.snippets.filter(snippet => {
+                    return snippet.snippetLanguage.includes("HTML/CSS");
+                });
+                javascriptFilterButton.classList.remove('filteredby');
+                htmlFilterButton.classList.add('filteredby');
+            } else if(e.target.closest('button') == javascriptFilterButton) {
+                filteredSnippets = data.snippets.filter(snippet => {
+                    return snippet.snippetLanguage.includes("Javascript");
+                });
+                htmlFilterButton.classList.remove('filteredby');
+                javascriptFilterButton.classList.add('filteredby');
+            } else {
+                return;
+            };
+
+            // (4) On vérifie s'il y a des valeurs
+            if (!filteredSnippets || filteredSnippets.length === 0) {
+                cardContainer.innerHTML = '';
+                const noResult = elementCreator('div', 'no-result');
+                noResult.textContent = "Aucun snippet n'a été trouvé";
+                cardContainer.appendChild(noResult);
+                return; // On arrête l'exécution si aucun snippet
+            };
+
+            // (5) On met à jour l'affichage.
+            cardContainer.innerHTML = '';
+            cardGenerator(filteredSnippets, cardContainer);
+        });
+        
     })
     .catch(error => console.error('Erreur de chargement du JSON : ', error));
 };
