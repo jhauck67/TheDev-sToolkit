@@ -2,7 +2,10 @@
  **                VARIABLES
  *=============================================**/
 //¤ Burger Menu
-const navbar = document.querySelector('.navbar');
+const sidebar = document.querySelector('.sidebar');
+const burgerButton = document.getElementById('burgerButton');
+const closeCross = document.getElementById('closeCross');
+const links = document.querySelectorAll('.link');
 //¤ Création de carte
 const cardContainer = document.querySelector('.grid-results');
 let allSnippets = [];
@@ -209,4 +212,17 @@ displayButtons.addEventListener('click', (e) => {
         gridDisplayButton.classList.remove('displayed');
         cardContainer.classList.add('inline-display');
     };
+});
+
+//# Burger Menu
+burgerButton.addEventListener('click', () => {
+    sidebar.classList.add('open');
+});
+closeCross.addEventListener('click', (e) => {
+    sidebar.classList.remove('open');
+});
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        sidebar.classList.remove('open');
+    });
 });

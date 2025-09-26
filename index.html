@@ -71,215 +71,286 @@
 
   <!-- TITRE : [BODY] : Début du site -->
   <body>
-    <!-- # Sidebar -->
-    <aside class="sidebar">
-      <!-- (1) Logo -->
-      <h1>
-        <img
-          src="./assets/img/icons/brandIcons/logo-code-horizontal-blanc.svg"
-          alt="logo horizontal de The Dev's Toolkit Code"
-          class="logo-horizontal"
-          width="200"
-          height="100"
-        />
-        <span class="visually-hidden">The Dev's Toolkit - Mon espace code & design</span>
-      </h1>
-      <!-- (2) Onglets -->
-      <div class="sidebar-section tabs">
-        <h2 class="section-title">Tabs</h2>
-        <div class="separator" aria-hidden="true"></div>
-        <ul>
-          <li><a href="#">Snippets</a></li>
-          <li><a href="./assets/pages/design.html">Design</a></li>
-          <li><a href="./assets/pages/web-tools.html">Web Tools</a></li>
-        </ul>
-      </div>
-      <!-- (3) Liens -->
-      <div class="sidebar-section links">
-        <h2 class="section-title">Links</h2>
-        <div class="separator" aria-hidden="true"></div>
-        <ul>
-          <li>
-            <a href="https://codepen.io/your-work" rel="noopener noreferrer" target="_blank">
-              CodePen
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/jhauck67" rel="noopener noreferrer" target="_blank">
-              GitHub
-            </a>
-          </li>
-          <li>
-            <a href="https://fonts.google.com/" rel="noopener noreferrer" target="_blank">
-              GoogleFonts
-            </a>
-          </li>
-          <li>
-            <a href="https://coolors.co/" rel="noopener noreferrer" target="_blank">Coolors</a>
-          </li>
-          <li>
-            <a
-              href="https://color.adobe.com/fr/create/color-wheel"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Adobe Color
-            </a>
-          </li>
-          <li>
-            <a href="https://simpleicons.org/" rel="noopener noreferrer" target="_blank">
-              Simple Icons
-            </a>
-          </li>
-          <li>
-            <a href="https://www.svgrepo.com/" rel="noopener noreferrer" target="_blank">
-              SVG Repo
-            </a>
-          </li>
-        </ul>
-      </div>
-    </aside>
-    <!-- # Header : Navigation et Recherche -->
-    <header>
-      <h2 class="visually-hidden">Scripts et Snippets</h2>
-      <!-- (1) Navigation -->
-      <nav class="navbar" aria-label="Navigation principale">
-        <ul>
-          <li class="active"><a href="#">Snippets</a></li>
-          <li><a href="./assets/pages/design.html">Design</a></li>
-          <li><a href="./assets/pages/web-tools.html">Web Tools</a></li>
-        </ul>
-      </nav>
-      <!-- (2) Search Bar -->
-      <div class="search-bar">
-        <img
-          src="./assets/img/icons/search.svg"
-          alt="Icone de la barre de recherche"
-          width="24"
-          height="24"
-        />
-        <input
-          type="search"
-          aria-label="barre de recherche de code snippets"
-          id="search-bar"
-          placeholder="Search snippets..."
-          autocomplete="off"
-        />
-      </div>
-      <!-- (3) Profile -->
-      <div class="profile">
-        <div class="profile-text">
-          <p>by Jhauck67</p>
-          <a href="https://github.com/jhauck67/" rel="noopener noreferrer" target="_blank">
-            github.com/jhauck67
-          </a>
-        </div>
-        <div class="profile-img">
+    <div class="container">
+      <!-- # Sidebar -->
+      <aside class="sidebar">
+        <!-- (1) Logo -->
+        <h1>
           <img
-            src="./assets/img/icons/brandIcons/icon-JHauck67.svg"
-            alt="Logo de Jhauck67"
-            width="50"
-            height="50"
+            src="./assets/img/icons/brandIcons/logo-code-horizontal-blanc.svg"
+            alt="logo horizontal de The Dev's Toolkit Code"
+            class="logo-horizontal"
+            width="200"
+            height="100"
           />
+          <img
+            src="./assets/img/icons/cross.svg"
+            alt="Bouton pour refermerla sidebar"
+            aria-label="Bouton pour refermerla sidebar"
+            id="closeCross"
+          />
+          <span class="visually-hidden">The Dev's Toolkit - Mon espace code & design</span>
+        </h1>
+        <!-- (2) Onglets -->
+        <div class="sidebar-section tabs">
+          <h2 class="section-title">Tabs</h2>
+          <div class="separator" aria-hidden="true"></div>
+          <ul>
+            <li><a href="#" class="link">Snippets</a></li>
+            <li><a href="./assets/pages/design.html" class="link">Design</a></li>
+            <li><a href="./assets/pages/web-tools.html" class="link">Web Tools</a></li>
+          </ul>
         </div>
-      </div>
-    </header>
-    <!-- # Main : Filter/Sort Bar et Grille -->
-    <main>
-      <!-- (1) Filter/Sort Bar -->
-      <div class="filter-sort-bar">
-        <div>
-          <!-- ¤ Filter buttons -->
-          <fieldset class="filter-buttons">
-            <legend class="visually-hidden">Filtres par langage</legend>
-            <button aria-label="Filtrer par HTML/CSS" id="html-filter">HTML/CSS</button>
-            <button aria-label="Filtrer par Javascript" id="javascript-filter">Javascript</button>
-          </fieldset>
+        <!-- (3) Liens -->
+        <div class="sidebar-section links">
+          <h2 class="section-title">Links</h2>
+          <div class="separator" aria-hidden="true"></div>
+          <ul>
+            <li>
+              <a
+                href="https://codepen.io/your-work"
+                rel="noopener noreferrer"
+                target="_blank"
+                class="link"
+              >
+                CodePen
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/jhauck67"
+                rel="noopener noreferrer"
+                target="_blank"
+                class="link"
+              >
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://fonts.google.com/"
+                rel="noopener noreferrer"
+                target="_blank"
+                class="link"
+              >
+                GoogleFonts
+              </a>
+            </li>
+            <li>
+              <a href="https://coolors.co/" rel="noopener noreferrer" target="_blank" class="link">
+                Coolors
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://color.adobe.com/fr/create/color-wheel"
+                rel="noopener noreferrer"
+                target="_blank"
+                class="link"
+              >
+                Adobe Color
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://simpleicons.org/"
+                rel="noopener noreferrer"
+                target="_blank"
+                class="link"
+              >
+                Simple Icons
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.svgrepo.com/"
+                rel="noopener noreferrer"
+                target="_blank"
+                class="link"
+              >
+                SVG Repo
+              </a>
+            </li>
+          </ul>
         </div>
-        <div>
-          <!-- ¤ Display buttons -->
-          <fieldset class="display-buttons">
-            <legend class="visually-hidden">Affichage en grille ou en ligne</legend>
-            <button aria-label="Afficher en grille" class="displayed" id="grid-display">
-              <svg
-                width="32"
-                height="20"
-                viewBox="0 0 32 20"
-                fill="inherit"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g clip-path="url(#clip0_2103_744)">
-                  <rect width="8" height="8" fill="inherit" />
-                  <rect y="12" width="8" height="8" fill="inherit" />
-                  <rect x="12" width="8" height="8" fill="inherit" />
-                  <rect x="12" y="12" width="8" height="8" fill="inherit" />
-                  <rect x="24" width="8" height="8" fill="inherit" />
-                  <rect x="24" y="12" width="8" height="8" fill="inherit" />
-                </g>
-                <defs>
-                  <clipPath id="clip0_2103_744">
-                    <rect width="32" height="20" fill="inherit" />
-                  </clipPath>
-                </defs>
-              </svg>
-            </button>
-            <button aria-label="Afficher en ligne" id="inline-display">
-              <svg
-                width="30"
-                height="20"
-                viewBox="0 0 30 20"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g clip-path="url(#clip0_2103_754)">
-                  <rect width="30" height="4" fill="currentColor" />
-                  <rect y="8" width="30" height="4" fill="currentColor" />
-                  <rect y="16" width="30" height="4" fill="currentColor" />
-                </g>
-                <defs>
-                  <clipPath id="clip0_2103_754">
-                    <rect width="30" height="20" fill="currentColor" />
-                  </clipPath>
-                </defs>
-              </svg>
-            </button>
-          </fieldset>
-          <!-- ¤ Sort select -->
-          <div class="sort-select">
-            <select id="sort-select" aria-label="Trier les résutats par">
-              <option value="" aria-hidden="true" selected>Sort by</option>
-              <option value="created">Date created</option>
-              <option value="alphabet">Alphabetical</option>
-              <optgroup label="Category">
-                <option value="navbar">Navbar</option>
-                <option value="gallery">Gallery</option>
-                <option value="animation">Animation</option>
-              </optgroup>
-            </select>
+      </aside>
+      <div>
+        <!-- # Header : Navigation et Recherche -->
+        <header>
+          <h2 class="visually-hidden">Scripts et Snippets</h2>
+          <!-- (0) Burger Menu -->
+          <div class="burger-menu">
+            <img
+              src="./assets/img/icons/brandIcons/icon-code-white.svg"
+              alt="Icone de The Dev's Toolkit"
+              width="50"
+              height="50"
+              aria-label="Icone de The Dev's Toolkit"
+            />
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 30 20"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-label="cliquer pour faire apparaître la side-bar"
+              id="burgerButton"
+            >
+              <g clip-path="url(#clip0_2103_754)">
+                <rect width="10" height="4" fill="currentColor" />
+                <rect y="8" width="14" height="4" fill="currentColor" />
+                <rect y="16" width="30" height="4" fill="currentColor" />
+                <path d="M13 2L20.7586 10L28 2" stroke="currentColor" stroke-width="4" />
+              </g>
+              <defs>
+                <clipPath id="clip0_2103_754">
+                  <rect width="30" height="30" fill="currentColor" />
+                </clipPath>
+              </defs>
+            </svg>
           </div>
-        </div>
+          <!-- (1) Navigation -->
+          <nav class="navbar" aria-label="Navigation principale">
+            <ul>
+              <li class="active"><a href="#">Snippets</a></li>
+              <li><a href="./assets/pages/design.html">Design</a></li>
+              <li><a href="./assets/pages/web-tools.html">Web Tools</a></li>
+            </ul>
+          </nav>
+          <!-- (2) Search Bar -->
+          <div class="search-bar">
+            <img
+              src="./assets/img/icons/search.svg"
+              alt="Icone de la barre de recherche"
+              width="24"
+              height="24"
+            />
+            <input
+              type="search"
+              aria-label="barre de recherche de code snippets"
+              id="search-bar"
+              placeholder="Search snippets..."
+              autocomplete="off"
+            />
+          </div>
+          <!-- (3) Profile -->
+          <div class="profile">
+            <div class="profile-text">
+              <p>by Jhauck67</p>
+              <a href="https://github.com/jhauck67/" rel="noopener noreferrer" target="_blank">
+                github.com/jhauck67
+              </a>
+            </div>
+            <div class="profile-img">
+              <img
+                src="./assets/img/icons/brandIcons/icon-JHauck67.svg"
+                alt="Logo de Jhauck67"
+                width="50"
+                height="50"
+              />
+            </div>
+          </div>
+        </header>
+        <!-- # Main : Filter/Sort Bar et Grille -->
+        <main>
+          <!-- (1) Filter/Sort Bar -->
+          <div class="filter-sort-bar">
+            <div>
+              <!-- ¤ Filter buttons -->
+              <fieldset class="filter-buttons">
+                <legend class="visually-hidden">Filtres par langage</legend>
+                <button aria-label="Filtrer par HTML/CSS" id="html-filter">HTML/CSS</button>
+                <button aria-label="Filtrer par Javascript" id="javascript-filter">
+                  Javascript
+                </button>
+              </fieldset>
+            </div>
+            <div>
+              <!-- ¤ Display buttons -->
+              <fieldset class="display-buttons">
+                <legend class="visually-hidden">Affichage en grille ou en ligne</legend>
+                <button aria-label="Afficher en grille" class="displayed" id="grid-display">
+                  <svg
+                    width="32"
+                    height="20"
+                    viewBox="0 0 32 20"
+                    fill="inherit"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_2103_744)">
+                      <rect width="8" height="8" fill="inherit" />
+                      <rect y="12" width="8" height="8" fill="inherit" />
+                      <rect x="12" width="8" height="8" fill="inherit" />
+                      <rect x="12" y="12" width="8" height="8" fill="inherit" />
+                      <rect x="24" width="8" height="8" fill="inherit" />
+                      <rect x="24" y="12" width="8" height="8" fill="inherit" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_2103_744">
+                        <rect width="32" height="20" fill="inherit" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </button>
+                <button aria-label="Afficher en ligne" id="inline-display">
+                  <svg
+                    width="30"
+                    height="20"
+                    viewBox="0 0 30 20"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_2103_754)">
+                      <rect width="30" height="4" fill="currentColor" />
+                      <rect y="8" width="30" height="4" fill="currentColor" />
+                      <rect y="16" width="30" height="4" fill="currentColor" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_2103_754">
+                        <rect width="30" height="20" fill="currentColor" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </button>
+              </fieldset>
+              <!-- ¤ Sort select -->
+              <div class="sort-select">
+                <select id="sort-select" aria-label="Trier les résutats par">
+                  <option value="" aria-hidden="true" selected>Sort by</option>
+                  <option value="created">Date created</option>
+                  <option value="alphabet">Alphabetical</option>
+                  <optgroup label="Category">
+                    <option value="navbar">Navbar</option>
+                    <option value="gallery">Gallery</option>
+                    <option value="animation">Animation</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- (2) Grid Results -->
+          <div class="grid-results"></div>
+        </main>
+        <!-- # Footer -->
+        <footer>
+          <div class="footer-container">
+            <img
+              src="./assets/img/icons/brandIcons/logo-code-horizontal-blanc.svg"
+              alt="logo horizontal de The Dev's Toolkit Code"
+              class="logo-horizontal"
+              width="200"
+              height="100"
+            />
+            <p>
+              &copy;
+              <span class="current-year">2025</span>
+              The Dev's Toolkit
+            </p>
+            <p>Tous droits réservés</p>
+          </div>
+        </footer>
       </div>
-      <!-- (2) Grid Results -->
-      <div class="grid-results"></div>
-    </main>
-    <!-- # Footer -->
-    <footer>
-      <div class="footer-container">
-        <img
-          src="./assets/img/icons/brandIcons/logo-code-horizontal-blanc.svg"
-          alt="logo horizontal de The Dev's Toolkit Code"
-          class="logo-horizontal"
-          width="200"
-          height="100"
-        />
-        <p>
-          &copy;
-          <span class="current-year">2025</span>
-          The Dev's Toolkit
-        </p>
-        <p>Tous droits réservés</p>
-      </div>
-    </footer>
+    </div>
     <!-- TITRE : [SCRIPT JS] -->
     <script type="module" src="./assets/scripts/index.js"></script>
   </body>

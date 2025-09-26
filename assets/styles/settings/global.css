@@ -6,17 +6,16 @@ body {
   min-height: 100dvh;
   background: var(--background-color-primary);
   overflow-x: hidden;
-  overflow-y: auto;
   font-family: var(--font-text);
+  font-size: 1rem;
   letter-spacing: 1px;
   color: var(--color-text-primary);
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  grid-template-rows: 80px 1fr 160px;
-  grid-template-areas:
-    'sb he'
-    'sb ma'
-    'sb fo';
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
 
 /* ###### Style des liens ###### */
