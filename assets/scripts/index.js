@@ -21,6 +21,9 @@ const htmlFilterButton = document.getElementById('html-filter');
 const javascriptFilterButton = document.getElementById('javascript-filter');
 //¤ Tri
 const sortSelect = document.getElementById('sort-select');
+//¤ Modale
+const resultsWindow = document.querySelector('.container');
+const modaleWindow = document.querySelector('.modale');
 
 /**============================================
  **             UTILS FUNCTIONS
@@ -40,6 +43,7 @@ const cardGenerator = (snippetsArray, container) => {
     snippetsArray.forEach(snippet => {
         // ¤.card
         const card = elementCreator('article', 'card');
+        card.setAttribute('data-snippet', `${snippet.id}`)
             // ¤.card-img
             const cardImg = elementCreator('div', 'card-img');
             // On construit le chemin de l'image
@@ -171,6 +175,21 @@ export const getSnippetsData = () => {
         const snippetsResult = sortAndFilterSnippets();
         valueVerificator(snippetsResult);
         cardGenerator(snippetsResult, cardContainer);
+
+        cardContainer.addEventListener('click', (e) => {
+            resultsWindow.classList.add('modaleMode');
+            modaleWindow.classList.add('modaleMode');
+            const clickedSnippet = snippetsResult.filter(snippet => {
+                return snippet.id.includes(e.target.closest('.card').dataset.snippet);
+            });
+            // Variables
+            const SnippetTitle = document.querySelector('.modale-snippet-title');
+
+            SnippetTitle.textContent = `${clickedSnippet[0].snippetName}`
+            console.log(clickedSnippet);
+    
+            console.log(SnippetTitle);
+        });
     })
     .catch(error => console.error('Erreur de chargement du JSON : ', error));
 };
@@ -226,3 +245,4 @@ links.forEach(link => {
         sidebar.classList.remove('open');
     });
 });
+
