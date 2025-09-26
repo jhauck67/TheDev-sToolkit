@@ -1,32 +1,48 @@
 {
     "snippets": [
         {
+            "id": "001",
             "snippetName": "A Nom du snippet1",
             "snippetLanguage": "HTML/CSS",
             "snippetDate": "01/02/2025",
             "snippetCategory": "Navbar",
-            "snippetScreenshot": "nom-du-projet.webp"
+            "snippetScreenshot": "nom-du-projet.webp",
+            "snippetHTML" : "<button class=\"pulsating-btn\">\n  Click Me!\n</button>",
+            "snippetCSS" : ".pulsating-btn {\n  /* Style de base (utilise tes variables) */\n  padding: var(--spacing-m) var(--spacing-l);\n  border-radius: var(--radius-m);\n  background-color: var(--color-accent-primary);\n  color: var(--neutral5);\n  font-weight: bold;\n  letter-spacing: 1.5px;\n  cursor: pointer;\n  \n  /* Transition pour l'effet */\n  transition: all var(--transition-normal);\n  \n  /* Reset button par défaut */\n  border: 1px solid transparent; \n}\n\n/* Effet de survol */\n.pulsating-btn:hover {\n  /* On fonce la couleur */\n  background-color: var(--color-accent-primary-dark);\n  /* Un léger effet d'agrandissement */\n  transform: scale(1.05); \n  /* Et l'ombre pour la profondeur */\n  box-shadow: 0 0 15px 5px var(--transparent60);\n}\n\n/* Effet de clic (actif) */\n.pulsating-btn:active {\n  transform: scale(0.98);\n}",
+            "snippetJS" : "// Pas de JavaScript nécessaire pour ce simple bouton.\nconsole.log(\"Snippet HTML/CSS chargé !\");"
         },
         {
+            "id": "002",
             "snippetName": "C Nom du snippet2",
             "snippetLanguage": "HTML/CSS",
             "snippetDate": "03/01/2025",
             "snippetCategory": "Gallery",
-            "snippetScreenshot": "nom-du-projet.webp"
+            "snippetScreenshot": "nom-du-projet.webp",
+            "snippetHTML" : "<button class=\"pulsating-btn\">\n  Click Me!\n</button>",
+            "snippetCSS" : ".pulsating-btn {\n  /* Style de base (utilise tes variables) */\n  padding: var(--spacing-m) var(--spacing-l);\n  border-radius: var(--radius-m);\n  background-color: var(--color-accent-primary);\n  color: var(--neutral5);\n  font-weight: bold;\n  letter-spacing: 1.5px;\n  cursor: pointer;\n  \n  /* Transition pour l'effet */\n  transition: all var(--transition-normal);\n  \n  /* Reset button par défaut */\n  border: 1px solid transparent; \n}\n\n/* Effet de survol */\n.pulsating-btn:hover {\n  /* On fonce la couleur */\n  background-color: var(--color-accent-primary-dark);\n  /* Un léger effet d'agrandissement */\n  transform: scale(1.05); \n  /* Et l'ombre pour la profondeur */\n  box-shadow: 0 0 15px 5px var(--transparent60);\n}\n\n/* Effet de clic (actif) */\n.pulsating-btn:active {\n  transform: scale(0.98);\n}",
+            "snippetJS" : "// Pas de JavaScript nécessaire pour ce simple bouton.\nconsole.log(\"Snippet HTML/CSS chargé !\");"
         },
         {
+            "id": "003",
             "snippetName": "B Nom du snippet3",
             "snippetLanguage": "Javascript",
             "snippetDate": "02/01/2025",
             "snippetCategory": "Navbar",
-            "snippetScreenshot": "nom-du-projet.webp"
+            "snippetScreenshot": "nom-du-projet.webp",
+            "snippetHTML" : "<button class=\"pulsating-btn\">\n  Click Me!\n</button>",
+            "snippetCSS" : ".pulsating-btn {\n  /* Style de base (utilise tes variables) */\n  padding: var(--spacing-m) var(--spacing-l);\n  border-radius: var(--radius-m);\n  background-color: var(--color-accent-primary);\n  color: var(--neutral5);\n  font-weight: bold;\n  letter-spacing: 1.5px;\n  cursor: pointer;\n  \n  /* Transition pour l'effet */\n  transition: all var(--transition-normal);\n  \n  /* Reset button par défaut */\n  border: 1px solid transparent; \n}\n\n/* Effet de survol */\n.pulsating-btn:hover {\n  /* On fonce la couleur */\n  background-color: var(--color-accent-primary-dark);\n  /* Un léger effet d'agrandissement */\n  transform: scale(1.05); \n  /* Et l'ombre pour la profondeur */\n  box-shadow: 0 0 15px 5px var(--transparent60);\n}\n\n/* Effet de clic (actif) */\n.pulsating-btn:active {\n  transform: scale(0.98);\n}",
+            "snippetJS" : "// Pas de JavaScript nécessaire pour ce simple bouton.\nconsole.log(\"Snippet HTML/CSS chargé !\");"
         },
         {
+            "id": "004",
             "snippetName": "D Nom du snippet4",
             "snippetLanguage": "HTML/CSS",
             "snippetDate": "01/03/2025",
             "snippetCategory": "Animation",
-            "snippetScreenshot": "nom-du-projet.webp"
+            "snippetScreenshot": "nom-du-projet.webp",
+            "snippetHTML" : "<button class=\"pulsating-btn\">\n  Click Me!\n</button>",
+            "snippetCSS" : ".pulsating-btn {\n  /* Style de base (utilise tes variables) */\n  padding: var(--spacing-m) var(--spacing-l);\n  border-radius: var(--radius-m);\n  background-color: var(--color-accent-primary);\n  color: var(--neutral5);\n  font-weight: bold;\n  letter-spacing: 1.5px;\n  cursor: pointer;\n  \n  /* Transition pour l'effet */\n  transition: all var(--transition-normal);\n  \n  /* Reset button par défaut */\n  border: 1px solid transparent; \n}\n\n/* Effet de survol */\n.pulsating-btn:hover {\n  /* On fonce la couleur */\n  background-color: var(--color-accent-primary-dark);\n  /* Un léger effet d'agrandissement */\n  transform: scale(1.05); \n  /* Et l'ombre pour la profondeur */\n  box-shadow: 0 0 15px 5px var(--transparent60);\n}\n\n/* Effet de clic (actif) */\n.pulsating-btn:active {\n  transform: scale(0.98);\n}",
+            "snippetJS" : "// Pas de JavaScript nécessaire pour ce simple bouton.\nconsole.log(\"Snippet HTML/CSS chargé !\");"
         }
     ]
 }

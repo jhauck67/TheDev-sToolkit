@@ -43,7 +43,7 @@ const cardGenerator = (snippetsArray, container) => {
             // ¤.card-img
             const cardImg = elementCreator('div', 'card-img');
             // On construit le chemin de l'image
-            const imagePath = `/assets/img/pictures/${snippet.snippetScreenshot}`;
+            const imagePath = `https://raw.githubusercontent.com/jhauck67/TheDev-sToolkit/refs/heads/main/assets/img/pictures/${snippet.snippetScreenshot}`;
             // Et on l'injecte en tant que background
             cardImg.style.setProperty('--card-img', `url('${imagePath}') center/cover`);
             // ¤.card-text
