@@ -1,48 +1,11 @@
-/**============================================
- **                VARIABLES
- *=============================================**/
-//¤ Burger Menu
-const sidebar = document.querySelector('.sidebar');
-const burgerButton = document.getElementById('burgerButton');
-const closeCross = document.getElementById('closeCross');
-const links = document.querySelectorAll('.link');
-//¤ Création de carte
-const cardContainer = document.querySelector('.grid-results');
-let allSnippets = [];
-//¤ Affichage en grille ou en ligne
-const displayButtons = document.querySelector('.display-buttons');
-const gridDisplayButton = document.getElementById('grid-display');
-const inlineDisplayButton = document.getElementById('inline-display');
-//¤ Barre de recherche
-const searchBar = document.getElementById('search-bar');
-//¤ Filtre par language
-const filterButtons = document.querySelector('.filter-buttons');
-const htmlFilterButton = document.getElementById('html-filter');
-const javascriptFilterButton = document.getElementById('javascript-filter');
-//¤ Tri
-const sortSelect = document.getElementById('sort-select');
-//¤ Modale
-const resultsWindow = document.querySelector('.container');
-const modaleWindow = document.querySelector('.modale');
+//*==============================================
+//*             FONCTIONS UTILES
+//*==============================================
 
-const SnippetTitle = document.querySelector('.modale-snippet-title');
-const SnippetLink = document.querySelector('.modale-snippet-source');
-const closeModaleBtn = document.getElementById('closeModaleBtn');
-const htmlContainer = document.querySelector('.code-html-body');
-const cssContainer = document.querySelector('.code-css-body');
-const jsContainer = document.querySelector('.code-js-body');
-const htmlCopyBtn = document.getElementById('htmlCopyButton');
-const cssCopyBtn = document.getElementById('cssCopyButton');
-const jsCopyBtn = document.getElementById('jsCopyButton');
-const viewContainer = document.querySelector('.modale-main-view');
-
-
-
-/**============================================
- **             UTILS FUNCTIONS
- *=============================================**/
-
-// FUNCTION : elementCreator
+// FUNCTIONS                                     
+// (1) elementCreator
+// Créer un élément HTML avec une balise, une classe et un iD (facultatif)
+// Exemple : elementCreator('div', 'container', 'view') => <div class='container' id='view'></div>
 const elementCreator = (balise, className, iD) => {
     const element = document.createElement(balise);
     if(className) element.classList.add(className);
@@ -50,9 +13,70 @@ const elementCreator = (balise, className, iD) => {
     return element;
 };
 
-// FUNCTION : cardGenerator
+// (2) dateConverter
+// Convertir une date JJ/MM/AAAA en AAAA/MM/JJ
+// Exemple : dateConverter('28/09/2025') => 2025/09/28
+const dateConverter = (dateString) => {
+    const [day, month, year] = dateString.split('/');
+    return new Date (`${year}/${month}/${day}`);
+};
+
+//*==============================================
+//*                BURGER MENU                   
+//*==============================================
+
+// VARIABLES                                     
+const sidebar = document.querySelector('.sidebar');
+const burgerButton = document.getElementById('burgerButton');
+const closeCross = document.getElementById('closeCross');
+const links = document.querySelectorAll('.link');
+
+// EVENT LISTENER                                
+// Au clic sur le Bouton Burger, on ouvre la sidebar.
+burgerButton.addEventListener('click', () => {
+    sidebar.classList.add('open');
+});
+// Au clic sur la croix, on ferme la sidebar.
+closeCross.addEventListener('click', (e) => {
+    sidebar.classList.remove('open');
+});
+// Si un lien est cliqué, on ferme la sidebar.
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        sidebar.classList.remove('open');
+    });
+});
+
+//*==============================================
+//*            FENÊTRE PRINCIPALE                   
+//*==============================================
+
+// VARIABLES                                     
+//* ----------- Création de carte ---------------
+const cardContainer = document.querySelector('.grid-results');
+let allSnippets = [];
+
+//* ---- Affichage en grille ou en ligne --------
+const displayButtons = document.querySelector('.display-buttons');
+const gridDisplayButton = document.getElementById('grid-display');
+const inlineDisplayButton = document.getElementById('inline-display');
+
+//* ---------- Barre de recherche ---------------
+const searchBar = document.getElementById('search-bar');
+
+//* ---------- Filtre par language --------------
+const filterButtons = document.querySelector('.filter-buttons');
+const htmlFilterButton = document.getElementById('html-filter');
+const javascriptFilterButton = document.getElementById('javascript-filter');
+
+//* ------------------ Tri ----------------------
+const sortSelect = document.getElementById('sort-select');
+
+// FUNCTIONS                                     
+//* ------------- cardGenerator -----------------
+// Génère les cartes sur la fenêtre principale grâce à la base de données .json
 const cardGenerator = (snippetsArray, container) => {
-    // (1) On boucle sur chaque projet dans le tableau.
+    // On boucle sur chaque projet dans le tableau.
     snippetsArray.forEach(snippet => {
         // ¤.card
         const card = elementCreator('article', 'card');
@@ -83,7 +107,7 @@ const cardGenerator = (snippetsArray, container) => {
                     category.classList.add('tag');
                     category.textContent = snippet.snippetCategory;
 
-        // (2) On assemble les cards.
+        // On assemble les cards.
         tagsContainer.appendChild(language);
         tagsContainer.appendChild(date);
         tagsContainer.appendChild(category);
@@ -94,12 +118,14 @@ const cardGenerator = (snippetsArray, container) => {
         card.appendChild(cardImg);
         card.appendChild(cardText);
 
-        // (3) On ajoute la carte au conteneur cible
+        // On ajoute la carte au conteneur cible
         container.appendChild(card);
     });
 };
 
-// FUNCTION : valueVerificator
+//* ----------- valueVerificator ----------------
+// Vérifie si le résultat de la base de données n'est pas vide.
+// S'il est vide, déclenche un message "Aucun résultat n'a été trouvé".
 const valueVerificator = (snippetsArray) => {
     if(!snippetsArray || snippetsArray.length === 0) {
         cardContainer.innerHTML = '';
@@ -110,13 +136,8 @@ const valueVerificator = (snippetsArray) => {
     }
 };
 
-// FUNCTION : dateConverter
-const dateConverter = (dateString) => {
-    const [day, month, year] = dateString.split('/');
-    return new Date (`${year}/${month}/${day}`);
-};
-
-// FUNCTION : sortAndFilterSnippets
+//* --------- sortAndFilterSnippets -------------
+// Passe le résultat de la base de données à travers les filtres et le tri.
 const sortAndFilterSnippets = () => {
     //(1) Filtre par Language
     let filteredSnippets = [];
@@ -167,7 +188,8 @@ const sortAndFilterSnippets = () => {
     return sortedSnippets;
 };
 
-// FUNCTION : refreshDisplay
+//* ------------ refreshDisplay -----------------
+// Rafraichit l'affichage, évite d'avoir à appeler la base de données à chaque fois.
 const refreshDisplay = () => {
     cardContainer.innerHTML = "";
     const snippetsResult = sortAndFilterSnippets();
@@ -175,7 +197,73 @@ const refreshDisplay = () => {
     cardGenerator(snippetsResult, cardContainer);
 };
 
-// FUNCTION : copyCode
+// EVENT LISTENER                                
+//* ---------- Barre de recherche ---------------
+// Déclenche un filtrage via ce qui est tapé dans la barre de recherche.
+searchBar.addEventListener('input', () => {
+    refreshDisplay();
+});
+
+//* ---------- Filtre par language --------------
+// Déclenche un filtrage via les boutons de language dans la "filter-sort-bar".
+filterButtons.addEventListener('click', (e) => {
+    if(e.target.closest('button') == htmlFilterButton) {
+        htmlFilterButton.classList.toggle('filteredby');
+        javascriptFilterButton.classList.remove('filteredby');
+    } else if(e.target.closest('button') == javascriptFilterButton) {
+        javascriptFilterButton.classList.toggle('filteredby');
+        htmlFilterButton.classList.remove('filteredby');
+    };
+    refreshDisplay();
+});
+
+//* -------- Tri par l'input select -------------
+// Déclenche un tri par date, ordre alphabetique ou catégorie.
+sortSelect.addEventListener('change', () => {
+    refreshDisplay();
+});
+
+//* -------- Grid ou Inline Display -------------
+// Déclenche une modification de la disposition des cards.
+displayButtons.addEventListener('click', (e) => {
+    if(e.target.closest('button') == gridDisplayButton) {
+        gridDisplayButton.classList.add('displayed');
+        inlineDisplayButton.classList.remove('displayed');
+        cardContainer.classList.remove('inline-display');
+    } else if(e.target.closest('button') == inlineDisplayButton) {
+        inlineDisplayButton.classList.add('displayed');
+        gridDisplayButton.classList.remove('displayed');
+        cardContainer.classList.add('inline-display');
+    };
+});
+
+//*==============================================
+//*              FENÊTRE MODALE                   
+//*==============================================
+
+// VARIABLES                                     
+const resultsWindow = document.querySelector('.container');
+const modaleWindow = document.querySelector('.modale');
+
+//* ------------- Modale Header -----------------
+const SnippetTitle = document.querySelector('.modale-snippet-title');
+const SnippetLink = document.querySelector('.modale-snippet-source');
+const closeModaleBtn = document.getElementById('closeModaleBtn');
+
+//* ----------- Modale code part ----------------
+const htmlContainer = document.querySelector('.code-html-body');
+const cssContainer = document.querySelector('.code-css-body');
+const jsContainer = document.querySelector('.code-js-body');
+const htmlCopyBtn = document.getElementById('htmlCopyButton');
+const cssCopyBtn = document.getElementById('cssCopyButton');
+const jsCopyBtn = document.getElementById('jsCopyButton');
+
+//* ----------- Modale view part ----------------
+const viewContainer = document.querySelector('.modale-main-view');
+
+// FUNCTIONS                                     
+//* --------------- copyCode --------------------
+// Copie le code correspondant à l'icône cliquée.
 const copyCode = (codeContainerElement, copyButton) => {
     const codeToCopy = codeContainerElement.textContent;
     navigator.clipboard.writeText(codeToCopy)
@@ -188,6 +276,23 @@ const copyCode = (codeContainerElement, copyButton) => {
         });
 };
 
+// EVENT LISTENER                                
+//* ------- Fermer la fenêtre modale ------------
+// Quand on clique sur la croix, la fenêtre modale se ferme.
+closeModaleBtn.addEventListener('click', () => {
+    resultsWindow.classList.remove('modaleMode');
+    modaleWindow.classList.remove('modaleMode');
+});
+
+//* ------------ Copier le code -----------------
+// Quand on clique sur l'icône "Copier", le code est copié dans le presse papier.
+htmlCopyBtn.addEventListener('click', () => copyCode(htmlContainer, htmlCopyBtn));
+cssCopyBtn.addEventListener('click', () => copyCode(cssContainer, cssCopyBtn));
+jsCopyBtn.addEventListener('click', () => copyCode(jsContainer, jsCopyBtn));
+
+
+
+//---------------------------------------------------------------à retravailler
 /**============================================
  **           PRINCIPAL FUNCTIONS
  *=============================================**/
@@ -215,6 +320,12 @@ export const getSnippetsData = () => {
 <html>
     <head>
         <style>
+            html {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
             ${clickedSnippet[0].snippetCSS}
         </style>
     </head>
@@ -249,64 +360,4 @@ export const getSnippetsData = () => {
 };
 getSnippetsData();
 
-/**============================================
- **             EVENT LISTENER
- *=============================================**/
 
-//# Recherche dans l'input search
-searchBar.addEventListener('input', () => {
-    refreshDisplay();
-});
-
-//# Filtre par language
-filterButtons.addEventListener('click', (e) => {
-    if(e.target.closest('button') == htmlFilterButton) {
-        htmlFilterButton.classList.toggle('filteredby');
-        javascriptFilterButton.classList.remove('filteredby');
-    } else if(e.target.closest('button') == javascriptFilterButton) {
-        javascriptFilterButton.classList.toggle('filteredby');
-        htmlFilterButton.classList.remove('filteredby');
-    };
-    refreshDisplay();
-});
-
-//# Tri par l'input select
-sortSelect.addEventListener('change', () => {
-    refreshDisplay();
-});
-
-//# Grid ou Inline Display
-displayButtons.addEventListener('click', (e) => {
-    if(e.target.closest('button') == gridDisplayButton) {
-        gridDisplayButton.classList.add('displayed');
-        inlineDisplayButton.classList.remove('displayed');
-        cardContainer.classList.remove('inline-display');
-    } else if(e.target.closest('button') == inlineDisplayButton) {
-        inlineDisplayButton.classList.add('displayed');
-        gridDisplayButton.classList.remove('displayed');
-        cardContainer.classList.add('inline-display');
-    };
-});
-
-//# Burger Menu
-burgerButton.addEventListener('click', () => {
-    sidebar.classList.add('open');
-});
-closeCross.addEventListener('click', (e) => {
-    sidebar.classList.remove('open');
-});
-links.forEach(link => {
-    link.addEventListener('click', () => {
-        sidebar.classList.remove('open');
-    });
-});
-
-htmlCopyBtn.addEventListener('click', () => copyCode(htmlContainer, htmlCopyBtn));
-cssCopyBtn.addEventListener('click', () => copyCode(cssContainer, cssCopyBtn));
-jsCopyBtn.addEventListener('click', () => copyCode(jsContainer, jsCopyBtn));
-
-
-closeModaleBtn.addEventListener('click', () => {
-    resultsWindow.classList.remove('modaleMode');
-    modaleWindow.classList.remove('modaleMode');
-});

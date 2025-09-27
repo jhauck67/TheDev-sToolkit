@@ -1,6 +1,11 @@
-/* TITRE : [RESET] = Reset des réglages navigateurs */
+/* §---------------------------------------------
+§                     RESET                      
+§        Reset des réglages navigateurs          
+§--------------------------------------------- */
 
-/* ###### [RESET DE BASE] ###### */
+/**==============================================
+**                Reset de base
+**===============================================**/
 *,
 *::before,
 *::after {
@@ -9,25 +14,31 @@
   box-sizing: border-box;
 }
 
-/* ###### [SCROLL] ###### */
+/**==============================================
+**                   Scroll
+**===============================================**/
 html {
   scroll-behavior: smooth;
 }
 
-/* ###### [RESET DE STYLE] ###### */
-/* (1) Retrait des bullet points aux listes */
+/**==============================================
+**               Reset de style
+**===============================================**/
+
+/**==== Retrait des bullet points aux li ======*/
 li {
   list-style: none;
 }
 
-/* (2) Réinitialisation de la couleur de la police et retrait du soulignage */
+/* * Réinitialisation de la couleur de la police 
+* et retrait du soulignage =================== */
 a,
 a:visited {
   text-decoration: none;
   color: inherit;
 }
 
-/* (3) Images et médias (block pour le layout) */
+/**= Images et médias (block pour le layout) ==*/
 img,
 picture,
 video,
@@ -38,7 +49,8 @@ canvas {
   border-style: none;
 }
 
-/* (4) Hérite de la police du parent, reset des bordures et du background */
+/* * Hérite de la police du parent, reset des 
+* bordures et du background ================== */
 button,
 input,
 select,

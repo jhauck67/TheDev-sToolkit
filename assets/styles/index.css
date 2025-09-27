@@ -1,4 +1,6 @@
-/* # Sidebar */
+/**==============================================
+**                   SIDEBAR
+**===============================================**/
 .sidebar {
   background: var(--neutral4);
   display: flex;
@@ -11,14 +13,18 @@
   left: 0;
   transition: all var(--transition-normal);
 }
-#closeCross {
-  display: none;
-}
+/*# ----------- Mode Open = .open ----------- #*/
 .sidebar.open {
   transform: translateX(0);
   width: 250px;
   overflow-y: auto;
 }
+
+/**================== LOGO ====================*/
+#closeCross {
+  display: none;
+}
+/*# ----------- Mode Open = .open ----------- #*/
 .sidebar.open h1 {
   position: relative;
 }
@@ -29,7 +35,8 @@
   right: 8px;
   z-index: 20;
 }
-/* (2+3) Onglets + Liens */
+
+/**============= ONGLETS + LIEN ===============*/
 .sidebar-section {
   margin: var(--spacing-m);
 }
@@ -55,7 +62,7 @@
   padding: var(--spacing-s);
   transition: all var(--transition-normal);
 }
-/* Hover */
+/*¤ ---------- Mode Hover = :hover ---------- ¤*/
 .sidebar-section ul li:hover {
   background: linear-gradient(90deg, transparent, var(--color-hover-link), transparent);
   border-radius: var(--radius-s);
@@ -65,7 +72,9 @@
   transform: scale(1.05);
 }
 
-/* # Header : Navigation et Recherche */
+/**==============================================
+**                   HEADER
+**===============================================**/
 header {
   margin-left: 220px;
   width: calc(100% - 220px);
@@ -77,15 +86,15 @@ header {
   padding: 0 var(--spacing-m);
   box-shadow: var(--shadow-black);
 }
-/* (0) Burger-Menu */
+
+/**=============== BURGER MENU ================*/
 .burger-menu {
   display: none;
   fill: var(--color-text-primary);
   align-items: center;
 }
 
-/* (1) Navigation */
-/* ¤ Style des onglets */
+/**=============== NAVIGATION =================*/
 .navbar ul {
   display: flex;
   align-items: center;
@@ -108,7 +117,7 @@ header {
   font-weight: bold;
   color: var(--color-text-primary);
 }
-/* Effet hover */
+/*¤ ---------- Mode Hover = :hover ---------- ¤*/
 .navbar ul li:hover {
   background: var(--neutral4-5);
 }
@@ -121,7 +130,7 @@ header {
   bottom: 0;
   left: 0;
 }
-/* ¤ Style de l'onglet actif */
+/*# --------- Mode Actif = .active ---------- #*/
 .navbar ul li.active {
   background: var(--neutral3-5);
   position: relative;
@@ -147,7 +156,7 @@ header {
   left: 0;
 }
 
-/* (2) Search bar */
+/**=============== SEARCH BAR =================*/
 .search-bar {
   background: var(--neutral4);
   border-radius: var(--radius-m);
@@ -166,13 +175,14 @@ header {
   color: var(--neutral0);
   font-weight: bold;
 }
+/*¤ ---------- Mode Focus = :focus ---------- ¤*/
 #search-bar:focus {
   outline: 1px solid var(--primary-color);
   outline-offset: 3px;
   transition: outline 0.3s ease;
 }
 
-/* (3) Profile */
+/**================= PROFILE ==================*/
 .profile {
   display: flex;
   align-items: center;
@@ -184,18 +194,21 @@ header {
 .profile-text a {
   transition: all var(--transition-normal);
 }
+/*¤ ---------- Mode Hover = :hover ---------- ¤*/
 .profile-text a:hover {
   transform: scale(1.05);
 }
 
-/* # Main : Filter/Sort et Grille */
+/**==============================================
+**                    MAIN
+**===============================================**/
 main {
   width: calc(100% - 220px);
   margin-left: 220px;
   min-height: calc(100dvh - 220px);
 }
 
-/* (1) Filter/Sort Bar */
+/**============= FILTER/SORT BAR ==============*/
 .filter-sort-bar {
   width: 80%;
   margin: var(--spacing-l) auto;
@@ -228,11 +241,13 @@ fieldset button {
   color: var(--neutral1);
   transition: all var(--transition-normal);
 }
-/* Hover */
+/*¤ ---------- Mode Hover = :hover ---------- ¤*/
 fieldset button:hover {
   background-color: var(--neutral4-5);
 }
-/* ¤ Filter button */
+
+/*(1) Les boutons filtre par Language. */
+/*# ----- Mode Filteredby = .filteredby ----- #*/
 /* Bouton actif : application de la classe .filteredby */
 .filter-buttons button.filteredby {
   background: var(--neutral3);
@@ -257,7 +272,8 @@ fieldset button:hover {
   bottom: 0;
   left: 0;
 }
-/* ¤ Display button */
+
+/*(2) Les boutons Display. */
 .display-buttons button {
   width: 36px;
   height: 36px;
@@ -271,7 +287,7 @@ fieldset button:hover {
   height: auto;
   fill: var(--color-text-primary);
 }
-
+/*# ------ Mode Displayed = .displayed ------ #*/
 /* Bouton actif : application de la classe .displayed */
 .display-buttons button.displayed {
   background: var(--neutral3);
@@ -298,7 +314,8 @@ fieldset button:hover {
 .display-buttons button.displayed svg {
   fill: var(--color-accent-primary) !important;
 }
-/* ¤ Sort select */
+
+/*(3) Le sort Select */
 #sort-select {
   background: var(--neutral3-5);
   box-shadow: var(--shadow-black);
@@ -308,13 +325,15 @@ fieldset button:hover {
   color: var(--neutral1);
   transition: all var(--transition-normal);
 }
+/*¤ ---------- Mode Focus = :focus ---------- ¤*/
 #sort-select:focus {
   outline: 1px solid var(--primary-color);
   outline-offset: 3px;
   box-shadow: var(--shadow-color);
   transition: outline 0.3s ease;
 }
-/* (2) Grid Result */
+
+/**=============== GRID RESULT ================*/
 .grid-results {
   width: 80%;
   margin: var(--spacing-xl) auto;
@@ -327,14 +346,15 @@ fieldset button:hover {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: var(--spacing-l);
 }
-/* Inline-display */
+/*# - Mode Inline-Display = .inline-display - #*/
 .grid-results.inline-display {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
 }
-/* ¤ Card */
+
+/*(1) Les Cards. */
 .card {
   max-width: 300px;
   margin: 0 auto;
@@ -347,25 +367,11 @@ fieldset button:hover {
   gap: var(--spacing-l);
   cursor: pointer;
 }
-/* Hover */
-.card:hover {
-  transform: scale(1.05);
-}
-/* Inline-display */
-.inline-display .card {
-  flex-direction: row;
-  width: 100%;
-  max-width: 1080px;
-}
 .card-img {
   width: 100%;
   height: auto;
   aspect-ratio: 3/2;
   background: var(--card-img);
-}
-/* Inline-display */
-.inline-display .card-img {
-  display: none;
 }
 .card-text {
   display: flex;
@@ -373,11 +379,6 @@ fieldset button:hover {
   align-items: left;
   gap: var(--spacing-m);
   font-weight: bold;
-}
-/* Inline-display */
-.inline-display .card-text {
-  flex-direction: row;
-  align-items: center;
 }
 .tags-container {
   display: flex;
@@ -391,8 +392,27 @@ fieldset button:hover {
   padding: var(--spacing-xs) var(--spacing-s);
   border-radius: var(--radius-s);
 }
+/*¤ ---------- Mode Hover = :hover ---------- ¤*/
+.card:hover {
+  transform: scale(1.05);
+}
+/*# - Mode Inline-Display = .inline-display - #*/
+.inline-display .card {
+  flex-direction: row;
+  width: 100%;
+  max-width: 1080px;
+}
+.inline-display .card-img {
+  display: none;
+}
+.inline-display .card-text {
+  flex-direction: row;
+  align-items: center;
+}
 
-/* # Footer */
+/**==============================================
+**                   FOOTER
+**===============================================**/
 footer {
   width: calc(100% - 220px);
   height: 140px;
@@ -407,12 +427,17 @@ footer {
   text-align: center;
 }
 
+/**==============================================
+**                MEDIA QUERIES
+**===============================================**/
+/*MEDIA Max-Width = 1090px */
 @media screen and (max-width: 1090px) {
   .profile-text {
     display: none;
   }
 }
 
+/*MEDIA Max-Width = 935px */
 @media screen and (max-width: 935px) {
   .sidebar {
     transform: translateX(-100%);
@@ -428,12 +453,14 @@ footer {
   }
 }
 
+/*MEDIA Max-Width = 780px */
 @media screen and (max-width: 780px) {
   .navbar {
     display: none;
   }
 }
 
+/*MEDIA Max-Width = 640px */
 @media screen and (max-width: 640px) {
   .filter-sort-bar {
     flex-wrap: wrap;
@@ -445,6 +472,7 @@ footer {
   }
 }
 
+/*MEDIA Max-Width = 460px */
 @media screen and (max-width: 460px) {
   body {
     font-size: var(--font-size-s);
@@ -464,7 +492,9 @@ footer {
   }
 }
 
-/* TITRE : [MODALE] : Détail du Snippet */
+/**==============================================
+**               FENÊTRE MODALE
+**===============================================**/
 .modale {
   display: none;
   width: 100dvw;
@@ -472,15 +502,16 @@ footer {
   background: var(--neutral4-5);
   z-index: 100;
 }
-.modale.modaleMode {
-  display: block;
-}
 .modale-container {
   width: 100%;
   height: 100%;
 }
+/*# ----- Mode modaleMode = .modaleMode ----- #*/
+.modale.modaleMode {
+  display: block;
+}
 
-/* # MODALE HEADER */
+/**============== MODALE HEADER ===============*/
 .modale-header {
   width: 100%;
   height: 80px;
@@ -491,13 +522,13 @@ footer {
   padding: 0 var(--spacing-m);
 }
 
-/* (1) Modale Header left */
+/*(1) Modale Header left */
 .modale-header-left {
   display: flex;
   align-items: center;
 }
 
-/* # MODALE MAIN */
+/**=============== MODALE MAIN ================*/
 .modale-main {
   width: 100%;
   height: calc(100% - 80px);
@@ -507,6 +538,8 @@ footer {
   height: 50%;
   padding: var(--spacing-m);
 }
+
+/*(1) Modale Main Code */
 .modale-main-code-container {
   display: flex;
   align-items: center;
@@ -542,6 +575,8 @@ footer {
   padding: var(--spacing-s);
   overflow: auto;
 }
+
+/*(2) Modale Main View */
 .modale-main-view {
   background: var(--neutral5);
 }

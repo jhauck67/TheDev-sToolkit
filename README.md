@@ -45,9 +45,8 @@ The Dev's Toolkit est un projet inspiré de CodePen, conçu pour centraliser et 
 
 ## 🛠️ À améliorer plus tard
 
-- ♿ Améliorer ma sémantique HTML
+- 📱 Créer des onglets dans la modale pour mieux voir les blocs de code
 - 💡 Mieux structurer mes projets
-- 🧪 S'entraîner à utiliser le fluid-responsive
 
 ## 👩‍💻 À propos de l’autrice
 

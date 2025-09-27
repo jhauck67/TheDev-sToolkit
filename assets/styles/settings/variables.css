@@ -1,7 +1,11 @@
-/* TITRE : [VARIABLES] : Variables fonts, couleurs, espacements, etc... */
+/* §---------------------------------------------
+§                   VARIABLES                    
+§ Variables fonts, couleurs, espacements, etc... 
+§--------------------------------------------- */
 
-/* ###### TYPOGRAPHIE ###### */
-/* (1) Import des fonts */
+/**==============================================
+**                 TYPOGRAPHIE
+**===============================================**/
 @font-face {
   font-family: 'FiraCode';
   src: url(../../fonts/FiraCode-VariableFont_wght.ttf);
@@ -13,15 +17,17 @@
   font-display: swap;
 }
 
-/* ########## COLORS ########## */
+/**==============================================
+**                LES COULEURS
+**===============================================**/
 :root {
-  /* (1) Couleur de base : */
+  /**=========== Couleur de base ==============*/
   --hue: 179;
   --sat: 100%;
   --light: 40%;
 
-  /* (2) Palette des couleurs : */
-  /* ¤ Primary Color */
+  /**======== Palette des couleurs ============*/
+  /*(1) Primary Color */
   --primary-color-light: hsl(
     var(--hue),
     calc((2 / 3) * var(--sat)),
@@ -30,7 +36,7 @@
   --primary-color: hsl(var(--hue), var(--sat), var(--light));
   --primary-color-dark: hsl(var(--hue), calc(50% + var(--sat) / 2), calc(var(--light) / 2));
 
-  /* ¤ Neutral */
+  /*(2) Neutral */
   --neutral0: hsl(var(--hue), 5%, 98%);
   --neutral1: hsl(var(--hue), 5%, 79%);
   --neutral2: hsl(var(--hue), 5%, 60%);
@@ -40,7 +46,7 @@
   --neutral4-5: hsl(var(--hue), 5%, 13%);
   --neutral5: hsl(var(--hue), 5%, 3%);
 
-  /* ¤ Variation en transparence */
+  /*(3) Variation en transparence */
   --transparent10: hsla(var(--hue), var(--sat), var(--light), 0.1); /* séparateur, ombre fine */
   --transparent30: hsla(
     var(--hue),
@@ -61,7 +67,7 @@
     0.9
   ); /* effet de survol bouton/lien, actif */
 
-  /* ¤ Effets d'ombre */
+  /*(4) Effets d'ombre */
   --shadow-color: 0 5px 10px 0 hsla(var(--hue), var(--sat), var(--light), 0.15),
     0 3px 5px 0 hsla(var(--hue), var(--sat), var(--light), 0.1),
     0 1px 2px 1px hsla(var(--hue), var(--sat), var(--light), 0.05);
@@ -71,9 +77,11 @@
     0 1px 2px 1px hsla(0, 0%, 79%, 0.05);
 }
 
-/* ###### AUTRES VARIABLES ###### */
+/**==============================================
+**               AUTRES VARIABLES
+**===============================================**/
 :root {
-  /* (1) Définition des espacements */
+  /**============= Espacements ================*/
   --spacing-xs: 0.25rem;
   --spacing-xs: 0.5rem;
   --spacing-s: 0.75rem;
@@ -82,7 +90,7 @@
   --spacing-xl: 2rem;
   --spacing-xxl: 3rem;
 
-  /* (2) Tailles de police */
+  /**========= Taille des polices =============*/
   --font-size-xs: 0.75rem;
   --font-size-s: 0.875rem;
   --font-size-m: 1rem;
@@ -90,48 +98,45 @@
   --font-size-xl: 2rem;
   --font-size-xxl: 3rem;
 
-  /* (3) Rayons de bordure */
+  /**========== Rayon de bordure ==============*/
   --radius-s: 4px;
   --radius-m: 8px;
   --radius-l: 12px;
 
-  /* (4) Durées de transition */
+  /**========= Durée de transition ============*/
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.5s ease;
-
-  /* (5) Définition des breakpoints */
-  --mobile: 480px;
-  --tablet: 770px;
-  --desktop: 1024px;
 }
 
-/* ###### VARIABLES SEMANTIQUES ###### */
+/**==============================================
+**            VARIABLES SEMANTIQUES
+**===============================================**/
 :root {
-  /* (1) Couleur de background : */
+  /**======== Couleur de background ===========*/
   --background-color-primary: var(--neutral4-5);
 
-  /* (2) Typographie : */
+  /**============= Typographie ================*/
   --font-text: 'Roboto', sans-serif;
   --font-code: 'FiraCode', monospace;
 
-  /* (3) Couleur de texte */
+  /**========== Couleur de texte ==============*/
   --color-text-primary: var(--neutral0);
   --color-text-secondary: var(--neutral2);
 
-  /* (4) Couleur d'interactivité */
-  /* ¤ Accentuation : */
+  /**======= Couleur d'interactivité ==========*/
+  /*(1) Accentuation : */
   --color-accent-primary: var(--primary-color);
   --color-accent-primary-dark: var(--primary-color-dark);
   --color-accent-primary-light: var(--primary-color-light);
 
-  /* ¤ Hover : */
+  /*(2) Hover : */
   --color-hover-button: var(--transparent90); /* effet au survol des lien et bouttons*/
   --color-hover-link: var(--transparent60); /* effet au survol des li*/
 
-  /* ¤ Border : */
+  /*(3) Border : */
   --color-border: var(--transparent30);
 
-  /* ¤ Light Separator */
+  /*(4) Light Separator */
   --color-separator-light: var(var(--transparent10));
 }

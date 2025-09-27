@@ -1,6 +1,11 @@
-/* TITRE : [STYLE GENERAL] : Style du body, du texte, etc... */
+/* §---------------------------------------------
+§                 STYLE GENERAL                  
+§        Style du body, du texte, etc...         
+§--------------------------------------------- */
 
-/* ###### Style du body ###### */
+/**==============================================
+**                Style du body
+**===============================================**/
 body {
   width: 100dvw;
   min-height: 100dvh;
@@ -17,11 +22,14 @@ body {
   width: 100%;
   height: 100%;
 }
+/*# ------- Mode Modale = .modaleMode ------- #*/
 .container.modaleMode {
   display: none;
 }
 
-/* ###### Style des liens ###### */
+/**==============================================
+**               Style des liens
+**===============================================**/
 a,
 a:visited {
   display: inline-block;
@@ -30,9 +38,11 @@ a:visited {
   transition: all var(--transition-normal);
 }
 
-/* ###### Style du texte ###### */
+/**==============================================
+**               Style du texte
+**===============================================**/
 
-/* (1) Texte invisible */
+/**============= Texte invisible ==============*/
 .visually-hidden {
   position: absolute;
   width: 1px;

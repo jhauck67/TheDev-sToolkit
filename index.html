@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <!-- TITRE : [HEAD] : Titre, Meta Datas et Styles -->
+  <!-- §-----------------------------------------
+  §                  [HEAD]                      
+  §        Titre, Meta Datas et Styles           
+  §--------------------------------------------->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0d0d0d" />
 
-    <!-- ###### [META TAGS PAGE] ###### -->
-    <!-- (1) Balise title -->
+    <!-- *---------------------------------------
+    *            Page Meta Tags
+    * ------------------------------------------>
+
+    <!-- *------- Balise Title ----------------->
     <title>The Dev's Toolkit – Snippets, Colors & Ressources Design</title>
 
-    <!-- (2) Meta Description -->
+    <!-- *----- Meta Description --------------->
     <meta
       name="description"
       content="The Dev's Toolkit est un outil inspiré de CodePen pour gérer des snippets de code, des palettes de couleurs, des polices et des SVGs. Un projet open-source pour apprendre JavaScript et organiser ses ressources de développement."
     />
 
-    <!-- (3) Icons system -->
-    <!-- ¤ favicon.ico -->
+    <!-- *------- Icons system ----------------->
+    <!-- (1) favicon.ico -->
     <link rel="icon" type="image/x-icon" href="./assets/img/icons/favicons/favicon.ico" />
-    <!-- ¤ favicon.svg -->
+    <!-- (2) favicon.svg -->
     <link rel="icon" type="image/svg+xml" href="./assets/img/icons/favicons/favicon.svg" />
-    <!-- ¤ favicon.png -->
+    <!-- (3) favicon.png -->
     <link
       rel="icon"
       type="image/png"
@@ -34,17 +40,19 @@
       sizes="16x16"
       href="./assets/img/icons/favicons/favicon16x16.png"
     />
-    <!-- ¤ Apple-touch-icon.png -->
+    <!-- (4) Apple-touch-icon.png -->
     <link
       rel="apple-touch-icon"
       sizes="180x180"
       href="./assets/img/icons/favicons/apple-touch-icon.png"
     />
 
-    <!-- (4) Auteur -->
+    <!-- *---------- Auteur -------------------->
     <meta name="author" content="Jhauck67" />
 
-    <!-- ###### [OPENGRAPH META TAGS] ###### -->
+    <!-- *---------------------------------------
+    *          OPENGRAPH META TAGS
+    * ------------------------------------------>
     <meta property="og:url" content="https://jhauck67.github.io/TheDev-sToolkit/index.html" />
     <meta property="og:type" content="website" />
     <meta
@@ -60,22 +68,30 @@
       content="https://jhauck67.github.io/TheDev-sToolkit/assets/sketch/OpenGraph-Code.png"
     />
 
-    <!-- ###### [FEUILLE DE STYLE CSS] ###### -->
+    <!-- *---------------------------------------
+    *         FEUILLES DE STYLE CSS
+    * ------------------------------------------>
     <link rel="stylesheet" href="./assets/styles/settings/reset.css" />
     <link rel="stylesheet" href="./assets/styles/settings/global.css" />
     <link rel="stylesheet" href="./assets/styles/settings/variables.css" />
     <link rel="stylesheet" href="./assets/styles/index.css" />
 
-    <!-- ###### [PRELOAD DES IMAGES] ###### -->
+    <!-- *---------------------------------------
+    *          PRELOAD DES IMAGES
+    * ------------------------------------------>
   </head>
-  <!--===========================================-->
 
-  <!-- TITRE : [BODY] : Début du site -->
+  <!-- §-----------------------------------------
+  §                  [BODY]                      
+  §               Début du site                  
+  §--------------------------------------------->
   <body>
     <div class="container">
-      <!-- # Sidebar -->
+      <!-- *-------------------------------------
+      *              SIDEBAR
+      * ---------------------------------------->
       <aside class="sidebar">
-        <!-- (1) Logo -->
+        <!-- *------- Logo --------------------->
         <h1>
           <img
             src="./assets/img/icons/brandIcons/logo-code-horizontal-blanc.svg"
@@ -92,7 +108,7 @@
           />
           <span class="visually-hidden">The Dev's Toolkit - Mon espace code & design</span>
         </h1>
-        <!-- (2) Onglets -->
+        <!-- *------ Onglets ------------------->
         <div class="sidebar-section tabs">
           <h2 class="section-title">Tabs</h2>
           <div class="separator" aria-hidden="true"></div>
@@ -102,7 +118,7 @@
             <li><a href="./assets/pages/web-tools.html" class="link">Web Tools</a></li>
           </ul>
         </div>
-        <!-- (3) Liens -->
+        <!-- *------- Liens -------------------->
         <div class="sidebar-section links">
           <h2 class="section-title">Links</h2>
           <div class="separator" aria-hidden="true"></div>
@@ -175,11 +191,14 @@
           </ul>
         </div>
       </aside>
+
       <div>
-        <!-- # Header : Navigation et Recherche -->
+        <!-- *-----------------------------------
+        *            HEADER
+        * -------------------------------------->
         <header>
           <h2 class="visually-hidden">Scripts et Snippets</h2>
-          <!-- (0) Burger Menu -->
+          <!-- *-- Burger Menu ----------------->
           <div class="burger-menu">
             <img
               src="./assets/img/icons/brandIcons/icon-code-white.svg"
@@ -210,7 +229,7 @@
               </defs>
             </svg>
           </div>
-          <!-- (1) Navigation -->
+          <!-- *-- Navigation ------------------>
           <nav class="navbar" aria-label="Navigation principale">
             <ul>
               <li class="active"><a href="#">Snippets</a></li>
@@ -218,7 +237,7 @@
               <li><a href="./assets/pages/web-tools.html">Web Tools</a></li>
             </ul>
           </nav>
-          <!-- (2) Search Bar -->
+          <!-- *-- Search Bar ------------------>
           <div class="search-bar">
             <img
               src="./assets/img/icons/search.svg"
@@ -234,7 +253,7 @@
               autocomplete="off"
             />
           </div>
-          <!-- (3) Profile -->
+          <!-- *---- Profile ------------------->
           <div class="profile">
             <div class="profile-text">
               <p>by Jhauck67</p>
@@ -252,12 +271,15 @@
             </div>
           </div>
         </header>
-        <!-- # Main : Filter/Sort Bar et Grille -->
+
+        <!-- *-----------------------------------
+        *             MAIN
+        * -------------------------------------->
         <main>
-          <!-- (1) Filter/Sort Bar -->
+          <!-- * Filter/Sort Bar --------------->
           <div class="filter-sort-bar">
+            <!-- (1) Filter buttons -->
             <div>
-              <!-- ¤ Filter buttons -->
               <fieldset class="filter-buttons">
                 <legend class="visually-hidden">Filtres par langage</legend>
                 <button aria-label="Filtrer par HTML/CSS" id="html-filter">HTML/CSS</button>
@@ -266,8 +288,9 @@
                 </button>
               </fieldset>
             </div>
+
+            <!-- (2) Display buttons -->
             <div>
-              <!-- ¤ Display buttons -->
               <fieldset class="display-buttons">
                 <legend class="visually-hidden">Affichage en grille ou en ligne</legend>
                 <button aria-label="Afficher en grille" class="displayed" id="grid-display">
@@ -314,7 +337,8 @@
                   </svg>
                 </button>
               </fieldset>
-              <!-- ¤ Sort select -->
+
+              <!-- (3) Sort select -->
               <div class="sort-select">
                 <select id="sort-select" aria-label="Trier les résutats par">
                   <option value="" aria-hidden="true" selected>Sort by</option>
@@ -329,10 +353,14 @@
               </div>
             </div>
           </div>
-          <!-- (2) Grid Results -->
+
+          <!-- *  Grid Results ----------------->
           <div class="grid-results"></div>
         </main>
-        <!-- # Footer -->
+
+        <!-- *-----------------------------------
+        *            FOOTER
+        * -------------------------------------->
         <footer>
           <div class="footer-container">
             <img
@@ -352,12 +380,13 @@
         </footer>
       </div>
     </div>
-    <!--===========================================-->
 
-    <!-- TITRE : [MODALE] : Détail du Snippet -->
+    <!-- *---------------------------------------
+    *            FENÊTRE MODALE
+    * ------------------------------------------>
     <div class="modale">
       <div class="modale-container">
-        <!-- # MODALE HEADER -->
+        <!-- *--- Modale Header ---------------->
         <div class="modale-header">
           <!-- (1) Modale header left -->
           <div class="modale-header-left">
@@ -387,7 +416,8 @@
             />
           </div>
         </div>
-        <!-- # MODALE MAIN -->
+
+        <!-- *---- Modale Main ----------------->
         <div class="modale-main">
           <!-- (1) Modal Main Code -->
           <div class="modale-main-code">
@@ -478,7 +508,9 @@
       </div>
     </div>
 
-    <!-- TITRE : [SCRIPT JS] -->
+    <!-- *---------------------------------------
+    *               SCRIPT JS
+    * ------------------------------------------>
     <script type="module" src="./assets/scripts/index.js"></script>
   </body>
 </html>
