@@ -25,6 +25,19 @@ const sortSelect = document.getElementById('sort-select');
 const resultsWindow = document.querySelector('.container');
 const modaleWindow = document.querySelector('.modale');
 
+const SnippetTitle = document.querySelector('.modale-snippet-title');
+const SnippetLink = document.querySelector('.modale-snippet-source');
+const closeModaleBtn = document.getElementById('closeModaleBtn');
+const htmlContainer = document.querySelector('.code-html-body');
+const cssContainer = document.querySelector('.code-css-body');
+const jsContainer = document.querySelector('.code-js-body');
+const htmlCopyBtn = document.getElementById('htmlCopyButton');
+const cssCopyBtn = document.getElementById('cssCopyButton');
+const jsCopyBtn = document.getElementById('jsCopyButton');
+const viewContainer = document.querySelector('.modale-main-view');
+
+
+
 /**============================================
  **             UTILS FUNCTIONS
  *=============================================**/
@@ -162,6 +175,19 @@ const refreshDisplay = () => {
     cardGenerator(snippetsResult, cardContainer);
 };
 
+// FUNCTION : copyCode
+const copyCode = (codeContainerElement, copyButton) => {
+    const codeToCopy = codeContainerElement.textContent;
+    navigator.clipboard.writeText(codeToCopy)
+        .then(() => {
+            console.log('Code copié');
+        })
+        .catch(err => {
+            console.error('Erreur lors de la copie', err);
+            alert('Désolé, la copie a échoué. Veuillez selectionner le code manuellement');
+        });
+};
+
 /**============================================
  **           PRINCIPAL FUNCTIONS
  *=============================================**/
@@ -182,13 +208,41 @@ export const getSnippetsData = () => {
             const clickedSnippet = snippetsResult.filter(snippet => {
                 return snippet.id.includes(e.target.closest('.card').dataset.snippet);
             });
-            // Variables
-            const SnippetTitle = document.querySelector('.modale-snippet-title');
+            
+            const viewSnippet = elementCreator('iframe', 'view-snippet');
+            const SnippetCode = `
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            ${clickedSnippet[0].snippetCSS}
+        </style>
+    </head>
+    <body>
+        ${clickedSnippet[0].snippetHTML}
+        <script>
+            ${clickedSnippet[0].snippetJS}
+        </script>
+    </body>
+</html>
+`;
 
-            SnippetTitle.textContent = `${clickedSnippet[0].snippetName}`
-            console.log(clickedSnippet);
-    
-            console.log(SnippetTitle);
+            SnippetTitle.textContent = `${clickedSnippet[0].snippetName}`;
+            SnippetLink.setAttribute('href', `${clickedSnippet[0].snippetSourceLink}`);
+            SnippetLink.textContent = `${clickedSnippet[0].snippetSourceTitle}`;
+            htmlContainer.textContent = `${clickedSnippet[0].snippetHTML}`;
+            cssContainer.textContent = `${clickedSnippet[0].snippetCSS}`;
+            jsContainer.textContent = `${clickedSnippet[0].snippetJS}`;
+            viewSnippet.setAttribute('srcdoc', `${clickedSnippet[0].snippetHTML}<style>${clickedSnippet[0].snippetCSS}</style><script>${clickedSnippet[0].snippetJS}</>`);
+            viewContainer.textContent = '';
+            viewContainer.appendChild(viewSnippet);
+            viewSnippet.setAttribute('srcdoc', SnippetCode);
+
+            
+
+            
+
+
         });
     })
     .catch(error => console.error('Erreur de chargement du JSON : ', error));
@@ -198,6 +252,7 @@ getSnippetsData();
 /**============================================
  **             EVENT LISTENER
  *=============================================**/
+
 //# Recherche dans l'input search
 searchBar.addEventListener('input', () => {
     refreshDisplay();
@@ -246,3 +301,12 @@ links.forEach(link => {
     });
 });
 
+htmlCopyBtn.addEventListener('click', () => copyCode(htmlContainer, htmlCopyBtn));
+cssCopyBtn.addEventListener('click', () => copyCode(cssContainer, cssCopyBtn));
+jsCopyBtn.addEventListener('click', () => copyCode(jsContainer, jsCopyBtn));
+
+
+closeModaleBtn.addEventListener('click', () => {
+    resultsWindow.classList.remove('modaleMode');
+    modaleWindow.classList.remove('modaleMode');
+});
