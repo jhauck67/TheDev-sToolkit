@@ -48,6 +48,30 @@ links.forEach(link => {
 });
 
 //*==============================================
+//*         RECUPERATION DES DONNEES                   
+//*==============================================
+//* ------------ getSnippetData -----------------
+// Récupère les données dans le fichier snippets.json
+export const getSnippetsData = () => {
+    // Récupération des données
+    fetch('https://raw.githubusercontent.com/jhauck67/TheDev-sToolkit/refs/heads/main/assets/data/snippets.json')
+    .then(response => response.json())
+    .then(data => {
+        allSnippets = data.snippets;
+        // Réinitialisation de l'affichage
+        cardContainer.innerHTML = "";
+        // Filtrage et Triage des résultats
+        const snippetsResult = sortAndFilterSnippets();
+        // Vérification des résultats
+        valueVerificator(snippetsResult);
+        // Génération des cards "résultat"
+        cardGenerator(snippetsResult, cardContainer);
+    })
+    .catch(error => console.error('Erreur de chargement du JSON : ', error));
+};
+getSnippetsData();
+
+//*==============================================
 //*            FENÊTRE PRINCIPALE                   
 //*==============================================
 
@@ -262,6 +286,49 @@ const jsCopyBtn = document.getElementById('jsCopyButton');
 const viewContainer = document.querySelector('.modale-main-view');
 
 // FUNCTIONS                                     
+//* ----------- openModaleWindow ----------------
+// Ouvre la fenêtre modale de la card cliquée.
+const openModaleWindow = (snippet) => {
+    // Changement de la fenêtre d'affichage.
+    resultsWindow.classList.add('modaleMode');
+    modaleWindow.classList.add('modaleMode');
+    // Préparation et remplissage.
+    viewContainer.innerHTML = '';
+    const newViewSnippet = elementCreator('iframe', 'view-snippet');
+
+    SnippetTitle.textContent = `${snippet.snippetName}`;
+    SnippetLink.setAttribute('href', `${snippet.snippetSourceLink}`);
+    SnippetLink.textContent = `${snippet.snippetSourceTitle}`;
+    htmlContainer.textContent = `${snippet.snippetHTML}`;
+    cssContainer.textContent = `${snippet.snippetCSS}`;
+    jsContainer.textContent = `${snippet.snippetJS}`;
+    viewContainer.innerHTML = '';
+    viewContainer.appendChild(newViewSnippet);
+    const SnippetCode = `
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <style>
+                html {
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                ${snippet.snippetCSS}
+            </style>
+        </head>
+        <body>
+            ${snippet.snippetHTML}
+            <script>
+                ${snippet.snippetJS}
+            </script>
+        </body>
+    </html>
+    `;
+    newViewSnippet.setAttribute('srcdoc', SnippetCode);
+};
+
 //* --------------- copyCode --------------------
 // Copie le code correspondant à l'icône cliquée.
 const copyCode = (codeContainerElement, copyButton) => {
@@ -277,6 +344,19 @@ const copyCode = (codeContainerElement, copyButton) => {
 };
 
 // EVENT LISTENER                                
+//* ------- Ouvrir la fenêtre modale ------------
+//Déclenchement de l'ouverture de la fenêtre modale de la carte cliquée.
+cardContainer.addEventListener('click', (e) => {
+    // On trouve la carte cliquée
+    const clickedCard = e.target.closest('.card');
+    if(!clickedCard) return;
+    const cardSnippetId = clickedCard.dataset.snippet;
+    // Utilisation de .find() pour obtenir l'objet
+    const selectedSnippet = allSnippets.find(snippet => snippet.id === cardSnippetId);
+    if(!selectedSnippet) return;
+    openModaleWindow(selectedSnippet);
+});
+
 //* ------- Fermer la fenêtre modale ------------
 // Quand on clique sur la croix, la fenêtre modale se ferme.
 closeModaleBtn.addEventListener('click', () => {
@@ -290,74 +370,20 @@ htmlCopyBtn.addEventListener('click', () => copyCode(htmlContainer, htmlCopyBtn)
 cssCopyBtn.addEventListener('click', () => copyCode(cssContainer, cssCopyBtn));
 jsCopyBtn.addEventListener('click', () => copyCode(jsContainer, jsCopyBtn));
 
+//*==============================================
+//*             COPYRIGHT FOOTER                   
+//*==============================================
 
+// VARIABLES                                     
+const copyrightYear = document.querySelector('.current-year');
+const currentDate = new Date();
 
-//---------------------------------------------------------------à retravailler
-/**============================================
- **           PRINCIPAL FUNCTIONS
- *=============================================**/
-// FUNCTION : getSnippetsData
-export const getSnippetsData = () => {
-    fetch('https://raw.githubusercontent.com/jhauck67/TheDev-sToolkit/refs/heads/main/assets/data/snippets.json')
-    .then(response => response.json())
-    .then(data => {
-        allSnippets = data.snippets;
-        cardContainer.innerHTML = "";
-        const snippetsResult = sortAndFilterSnippets();
-        valueVerificator(snippetsResult);
-        cardGenerator(snippetsResult, cardContainer);
-
-        cardContainer.addEventListener('click', (e) => {
-            resultsWindow.classList.add('modaleMode');
-            modaleWindow.classList.add('modaleMode');
-            const clickedSnippet = snippetsResult.filter(snippet => {
-                return snippet.id.includes(e.target.closest('.card').dataset.snippet);
-            });
-            
-            const viewSnippet = elementCreator('iframe', 'view-snippet');
-            const SnippetCode = `
-<!DOCTYPE html>
-<html>
-    <head>
-        <style>
-            html {
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            ${clickedSnippet[0].snippetCSS}
-        </style>
-    </head>
-    <body>
-        ${clickedSnippet[0].snippetHTML}
-        <script>
-            ${clickedSnippet[0].snippetJS}
-        </script>
-    </body>
-</html>
-`;
-
-            SnippetTitle.textContent = `${clickedSnippet[0].snippetName}`;
-            SnippetLink.setAttribute('href', `${clickedSnippet[0].snippetSourceLink}`);
-            SnippetLink.textContent = `${clickedSnippet[0].snippetSourceTitle}`;
-            htmlContainer.textContent = `${clickedSnippet[0].snippetHTML}`;
-            cssContainer.textContent = `${clickedSnippet[0].snippetCSS}`;
-            jsContainer.textContent = `${clickedSnippet[0].snippetJS}`;
-            viewSnippet.setAttribute('srcdoc', `${clickedSnippet[0].snippetHTML}<style>${clickedSnippet[0].snippetCSS}</style><script>${clickedSnippet[0].snippetJS}</>`);
-            viewContainer.textContent = '';
-            viewContainer.appendChild(viewSnippet);
-            viewSnippet.setAttribute('srcdoc', SnippetCode);
-
-            
-
-            
-
-
-        });
-    })
-    .catch(error => console.error('Erreur de chargement du JSON : ', error));
+// FUNCTION                                      
+// Récupère l'année en cours et l'implémente dans le footer
+const getCurrentYear = () => {
+    // On récupère l'année en cours
+    const currentYear = currentDate.getFullYear();
+    // On injecte cette valeur dans le span.current-year
+    copyrightYear.textContent = currentYear;
 };
-getSnippetsData();
-
-
+getCurrentYear();
