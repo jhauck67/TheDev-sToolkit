@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <!-- §-----------------------------------------
+  §                  [HEAD]                      
+  §        Titre, Meta Datas et Styles           
+  §--------------------------------------------->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d0d0d" />
+
+    <!-- *---------------------------------------
+    *            Page Meta Tags
+    * ------------------------------------------>
+
+    <!-- *------- Balise Title ----------------->
+    <title>The Dev's Toolkit – Snippets, Colors & Ressources Design</title>
+
+    <!-- *----- Meta Description --------------->
+    <meta
+      name="description"
+      content="The Dev's Toolkit est un outil inspiré de CodePen pour gérer des snippets de code, des palettes de couleurs, des polices et des SVGs. Un projet open-source pour apprendre JavaScript et organiser ses ressources de développement."
+    />
+
+    <!-- *------- Icons system ----------------->
+    <!-- (1) favicon.ico -->
+    <link rel="icon" type="image/x-icon" href="../img/icons/favicons/favicon-design.ico" />
+    <!-- (2) favicon.svg -->
+    <link rel="icon" type="image/svg+xml" href="../img/icons/favicons/favicon-design.svg" />
+    <!-- (3) favicon.png -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../img/icons/favicons/favicon32x32-design.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../img/icons/favicons/favicon16x16-design.png"
+    />
+    <!-- (4) Apple-touch-icon.png -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../img/icons/favicons/apple-touch-icon-design.png"
+    />
+
+    <!-- *---------- Auteur -------------------->
+    <meta name="author" content="Jhauck67" />
+
+    <!-- *---------------------------------------
+    *          OPENGRAPH META TAGS
+    * ------------------------------------------>
+    <meta
+      property="og:url"
+      content="https://jhauck67.github.io/TheDev-sToolkit/assets/pages/design.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="🛠️ The Dev's Toolkit – Snippets, Palettes de Couleurs & Ressources Design"
+    />
+    <meta
+      property="og:description"
+      content="The Dev's Toolkit est un outil inspiré de CodePen pour gérer des snippets de code, des palettes de couleurs, des polices et des SVGs. Un projet open-source pour apprendre JavaScript et organiser ses ressources de développement."
+    />
+    <meta
+      property="og:image"
+      content="https://jhauck67.github.io/TheDev-sToolkit/assets/sketch/OpenGraph-Design.png"
+    />
+
+    <!-- *---------------------------------------
+    *         FEUILLES DE STYLE CSS
+    * ------------------------------------------>
+    <link rel="stylesheet" href="../styles/settings/reset.css" />
+    <link rel="stylesheet" href="../styles/settings/global.css" />
+    <link rel="stylesheet" href="../styles/settings/variables-design.css" />
+    <link rel="stylesheet" href="../styles/index.css" />
+
+    <!-- *---------------------------------------
+    *          PRELOAD DES IMAGES
+    * ------------------------------------------>
+  </head>
+
+  <!-- §-----------------------------------------
+  §                  [BODY]                      
+  §               Début du site                  
+  §--------------------------------------------->
+  <body>
+    <div class="container">
+      <!-- *-------------------------------------
+      *              SIDEBAR
+      * ---------------------------------------->
+      <aside class="sidebar">
+        <!-- *------- Logo --------------------->
+        <h1>
+          <img
+            src="../img/icons/brandIcons/logo-design-horizontal-blanc.svg"
+            alt="logo horizontal de The Dev's Toolkit Code"
+            class="logo-horizontal"
+            width="200"
+            height="100"
+          />
+          <img
+            src="../img/icons/cross.svg"
+            alt="Bouton pour refermerla sidebar"
+            aria-label="Bouton pour refermerla sidebar"
+            id="closeCross"
+          />
+          <span class="visually-hidden">The Dev's Toolkit - Mon espace code & design</span>
+        </h1>
+        <!-- *------ Onglets ------------------->
+        <div class="sidebar-section tabs">
+          <h2 class="section-title">Tabs</h2>
+          <div class="separator" aria-hidden="true"></div>
+          <ul>
+            <li><a href="../../index.html" class="link">Snippets</a></li>
+            <li><a href="#" class="link">Design</a></li>
+            <li><a href="./web-tools.html" class="link">Web Tools</a></li>
+          </ul>
+        </div>
+        <!-- *------- Liens -------------------->
+        <div class="sidebar-section links">
+          <h2 class="section-title">Links</h2>
+          <div class="separator" aria-hidden="true"></div>
+          <ul>
+            <li>
+              <a
+                href="https://codepen.io/your-work"
+                rel="noopener noreferrer"
+                target="_blank"
+                class="link"
+              >
+                CodePen
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/jhauck67"
+                rel="noopener noreferrer"
+                target="_blank"
+                class="link"
+              >
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://fonts.google.com/"
+                rel="noopener noreferrer"
+                target="_blank"
+                class="link"
+              >
+                GoogleFonts
+              </a>
+            </li>
+            <li>
+              <a href="https://coolors.co/" rel="noopener noreferrer" target="_blank" class="link">
+                Coolors
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://color.adobe.com/fr/create/color-wheel"
+                rel="noopener noreferrer"
+                target="_blank"
+                class="link"
+              >
+                Adobe Color
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://simpleicons.org/"
+                rel="noopener noreferrer"
+                target="_blank"
+                class="link"
+              >
+                Simple Icons
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.svgrepo.com/"
+                rel="noopener noreferrer"
+                target="_blank"
+                class="link"
+              >
+                SVG Repo
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <div>
+        <!-- *-----------------------------------
+        *            HEADER
+        * -------------------------------------->
+        <header>
+          <h2 class="visually-hidden">Scripts et Snippets</h2>
+          <!-- *-- Burger Menu ----------------->
+          <div class="burger-menu">
+            <img
+              src="../img/icons/brandIcons/icon-code-white.svg"
+              alt="Icone de The Dev's Toolkit"
+              width="50"
+              height="50"
+              aria-label="Icone de The Dev's Toolkit"
+            />
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 30 20"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-label="cliquer pour faire apparaître la side-bar"
+              id="burgerButton"
+            >
+              <g clip-path="url(#clip0_2103_754)">
+                <rect width="10" height="4" fill="currentColor" />
+                <rect y="8" width="14" height="4" fill="currentColor" />
+                <rect y="16" width="30" height="4" fill="currentColor" />
+                <path d="M13 2L20.7586 10L28 2" stroke="currentColor" stroke-width="4" />
+              </g>
+              <defs>
+                <clipPath id="clip0_2103_754">
+                  <rect width="30" height="30" fill="currentColor" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <!-- *-- Navigation ------------------>
+          <nav class="navbar" aria-label="Navigation principale">
+            <ul>
+              <li><a href="../../index.html">Snippets</a></li>
+              <li class="active"><a href="#">Design</a></li>
+              <li><a href="./web-tools.html">Web Tools</a></li>
+            </ul>
+          </nav>
+          <!-- *-- Search Bar ------------------>
+          <div class="search-bar">
+            <img
+              src="../img/icons/search.svg"
+              alt="Icone de la barre de recherche"
+              width="24"
+              height="24"
+            />
+            <input
+              type="search"
+              aria-label="barre de recherche de code snippets"
+              id="search-bar"
+              placeholder="Search snippets..."
+              autocomplete="off"
+            />
+          </div>
+          <!-- *---- Profile ------------------->
+          <div class="profile">
+            <div class="profile-text">
+              <p>by Jhauck67</p>
+              <a href="https://github.com/jhauck67/" rel="noopener noreferrer" target="_blank">
+                github.com/jhauck67
+              </a>
+            </div>
+            <div class="profile-img">
+              <img
+                src="../img/icons/brandIcons/icon-JHauck67.svg"
+                alt="Logo de Jhauck67"
+                width="50"
+                height="50"
+              />
+            </div>
+          </div>
+        </header>
+
+        <!-- *-----------------------------------
+        *             MAIN
+        * -------------------------------------->
+        <main>
+          <!-- * Filter/Sort Bar --------------->
+          <div class="filter-sort-bar">
+            <!-- (1) Filter buttons -->
+            <div>
+              <fieldset class="filter-buttons">
+                <legend class="visually-hidden">Filtres par langage</legend>
+                <button aria-label="Filtrer par HTML/CSS" id="html-filter">HTML/CSS</button>
+                <button aria-label="Filtrer par Javascript" id="javascript-filter">
+                  Javascript
+                </button>
+              </fieldset>
+            </div>
+
+            <!-- (2) Display buttons -->
+            <div>
+              <fieldset class="display-buttons">
+                <legend class="visually-hidden">Affichage en grille ou en ligne</legend>
+                <button aria-label="Afficher en grille" class="displayed" id="grid-display">
+                  <svg
+                    width="32"
+                    height="20"
+                    viewBox="0 0 32 20"
+                    fill="inherit"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_2103_744)">
+                      <rect width="8" height="8" fill="inherit" />
+                      <rect y="12" width="8" height="8" fill="inherit" />
+                      <rect x="12" width="8" height="8" fill="inherit" />
+                      <rect x="12" y="12" width="8" height="8" fill="inherit" />
+                      <rect x="24" width="8" height="8" fill="inherit" />
+                      <rect x="24" y="12" width="8" height="8" fill="inherit" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_2103_744">
+                        <rect width="32" height="20" fill="inherit" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </button>
+                <button aria-label="Afficher en ligne" id="inline-display">
+                  <svg
+                    width="30"
+                    height="20"
+                    viewBox="0 0 30 20"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_2103_754)">
+                      <rect width="30" height="4" fill="currentColor" />
+                      <rect y="8" width="30" height="4" fill="currentColor" />
+                      <rect y="16" width="30" height="4" fill="currentColor" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_2103_754">
+                        <rect width="30" height="20" fill="currentColor" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </button>
+              </fieldset>
+
+              <!-- (3) Sort select -->
+              <div class="sort-select">
+                <select id="sort-select" aria-label="Trier les résutats par">
+                  <option value="" aria-hidden="true" selected>Sort by</option>
+                  <option value="created">Date created</option>
+                  <option value="alphabet">Alphabetical</option>
+                  <optgroup label="Category">
+                    <option value="navbar">Navbar</option>
+                    <option value="gallery">Gallery</option>
+                    <option value="animation">Animation</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- *  Grid Results ----------------->
+          <div class="grid-results"></div>
+        </main>
+
+        <!-- *-----------------------------------
+        *            FOOTER
+        * -------------------------------------->
+        <footer>
+          <div class="footer-container">
+            <img
+              src="../img/icons/brandIcons/logo-design-horizontal-blanc.svg"
+              alt="logo horizontal de The Dev's Toolkit Code"
+              class="logo-horizontal"
+              width="200"
+              height="100"
+            />
+            <p>
+              &copy;
+              <span class="current-year">2025</span>
+              The Dev's Toolkit
+            </p>
+            <p>Tous droits réservés</p>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- *---------------------------------------
+    *            FENÊTRE MODALE
+    * ------------------------------------------>
+    <div class="modale">
+      <div class="modale-container">
+        <!-- *--- Modale Header ---------------->
+        <div class="modale-header">
+          <!-- (1) Modale header left -->
+          <div class="modale-header-left">
+            <img
+              src="../img/icons/brandIcons/icon-design-white.svg"
+              alt="Logo The Dev's Toolkit"
+              width="60"
+              height="60"
+              aria-label="Logo The Dev's Toolkit"
+            />
+            <div class="modale-header-left-text">
+              <h2 class="modale-snippet-title">Nom du snippet</h2>
+              <a href="" aria-label="Lien vers la source du snippet" class="modale-snippet-source">
+                Source
+              </a>
+            </div>
+          </div>
+          <!-- (2) Modale header right -->
+          <div class="modale-header-right">
+            <img
+              src="../img/icons/cross.svg"
+              alt="Croix de fermeture"
+              width="40"
+              height="40"
+              aria-label="Fermer la modale"
+              id="closeModaleBtn"
+            />
+          </div>
+        </div>
+
+        <!-- *---- Modale Main ----------------->
+        <div class="modale-main">
+          <!-- (1) Modal Main Code -->
+          <div class="modale-main-code">
+            <div class="modale-main-code-container">
+              <!-- ¤ Code HTML -->
+              <div class="html-container code-container">
+                <div class="code-html-header code-header">
+                  <div class="code-html-header-left code-header-left">
+                    <img
+                      src="../img/icons/brandIcons/languages/html-icon.svg"
+                      alt="icone HTML"
+                      aria-hidden="true"
+                      width="20"
+                      height="20"
+                    />
+                    <h3>HTML</h3>
+                  </div>
+                  <div class="code-html-header-right code-header-right">
+                    <img
+                      src="../img/icons/icone-copier.svg"
+                      alt="bouton copier"
+                      aria-label="Copier le code"
+                      width="24"
+                      height="24"
+                      id="htmlCopyButton"
+                    />
+                  </div>
+                </div>
+                <pre class="code-html-body code-body"></pre>
+              </div>
+              <!-- ¤ Code CSS -->
+              <div class="css-container code-container">
+                <div class="code-css-header code-header">
+                  <div class="code-css-header-left code-header-left">
+                    <img
+                      src="../img/icons/brandIcons/languages/css-icon.svg"
+                      alt="icone CSS"
+                      aria-hidden="true"
+                      width="20"
+                      height="20"
+                    />
+                    <h3>CSS</h3>
+                  </div>
+                  <div class="code-css-header-right code-header-right">
+                    <img
+                      src="../img/icons/icone-copier.svg"
+                      alt="bouton copier"
+                      aria-label="Copier le code"
+                      width="24"
+                      height="24"
+                      id="cssCopyButton"
+                    />
+                  </div>
+                </div>
+                <pre class="code-css-body code-body"></pre>
+              </div>
+              <!-- ¤ Code JS -->
+              <div class="js-container code-container">
+                <div class="code-js-header code-header">
+                  <div class="code-js-header-left code-header-left">
+                    <img
+                      src="../img/icons/brandIcons/languages/javascript-icon.svg"
+                      alt="icone JS"
+                      aria-hidden="true"
+                      width="20"
+                      height="20"
+                    />
+                    <h3>JS</h3>
+                  </div>
+                  <div class="code-js-header-right code-header-right">
+                    <img
+                      src="../img/icons/icone-copier.svg"
+                      alt="bouton copier"
+                      aria-label="Copier le code"
+                      width="24"
+                      height="24"
+                      id="jsCopyButton"
+                    />
+                  </div>
+                </div>
+                <pre class="code-js-body code-body"></pre>
+              </div>
+            </div>
+          </div>
+          <!-- (2) Modal Main View -->
+          <div class="modale-main-view"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- *---------------------------------------
+    *               SCRIPT JS
+    * ------------------------------------------>
+    <script type="module" src="./assets/scripts/global.js"></script>
+    <script type="module" src="./assets/scripts/design.js"></script>
+  </body>
+</html>
