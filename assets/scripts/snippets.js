@@ -155,7 +155,7 @@ const sortAndFilterSnippets = () => {
             return a.snippetName.localeCompare(b.snippetName);
         });
     //¤ Filtrer par catégorie
-    } else if(sortSelect.value === ("navbar") || sortSelect.value === ("gallery") || sortSelect.value === ("animation")) {
+    } else if(sortSelect.value === ("navbar") || sortSelect.value === ("button") || sortSelect.value === ("scrollbar") || sortSelect.value === ("gallery") || sortSelect.value === ("card") || sortSelect.value === ("animation") || sortSelect.value === ("form") || sortSelect.value === ("modal") || sortSelect.value === ("dropdown") || sortSelect.value === ("toggle") || sortSelect.value === ("loader") || sortSelect.value === ("shadow") || sortSelect.value === ('tooltip')) {
         sortedSnippets = searchedSnippets.filter(snippet => {
             return snippet.snippetCategory.toLowerCase().includes(sortSelect.value.toLowerCase());
         });
