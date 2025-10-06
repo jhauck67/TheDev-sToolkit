@@ -2,18 +2,21 @@
     "colors": [
         {
             "id": "001",
+            "paletteDate" : "01/02/2025",
             "paletteName": "Nom de Palette",
             "paletteColor": ["#efe9d5", "#497d74", "#71bbb2", "#27445d"],
             "paletteScreenshot": "nom-du-projet.webp"
         },
         {
             "id": "002",
+            "paletteDate" : "05/10/2025",
             "paletteName": "Nom de Palette",
             "paletteColor": ["#fcfaee", "#ff6801", "#dbd0be", "#0c5446"],
             "paletteScreenshot": "nom-du-projet.webp"
         },
         {
             "id": "003",
+            "paletteDate" : "25/11/2025",
             "paletteName": "Nom de Palette",
             "paletteColor": ["#fffefa", "#bdf806", "#f9deff", "#fe581e"],
             "paletteScreenshot": "nom-du-projet.webp"
@@ -22,6 +25,7 @@
     "fonts": [
         {
             "id": "001",
+            "fontDate": "30/12/2024",
             "fontName": "Bangers",
             "fontDescription": "Lorem ipsum odor amet, consectetuer adipiscing elit. Blandit auctor tellus donec faucibus duis.",
             "fontScreenshot": "nom-du-projet.webp",
@@ -29,6 +33,7 @@
         },
         {
             "id": "002",
+            "fontDate": "06/03/2024",
             "fontName": "Quintessential",
             "fontDescription": "Lorem ipsum odor amet, consectetuer adipiscing elit. Blandit auctor tellus donec faucibus duis.",
             "fontScreenshot": "nom-du-projet.webp",
@@ -36,6 +41,7 @@
         },
         {
             "id": "003",
+            "fontDate": "18/05/2025",
             "fontName": "Rubik Maze",
             "fontDescription": "Lorem ipsum odor amet, consectetuer adipiscing elit. Blandit auctor tellus donec faucibus duis.",
             "fontScreenshot": "nom-du-projet.webp",
@@ -45,6 +51,7 @@
     "icons": [
         {
             "id": "001",
+            "iconDate": "08/04/2024",
             "iconName": "Facebook",
             "iconDescription": "Lorem ipsum odor amet, consectetuer adipiscing elit. Blandit auctor tellus donec faucibus duis.",
             "iconScreenshot": "nom-du-projet.webp",
@@ -52,6 +59,7 @@
         },
         {
             "id": "002",
+            "iconDate": "24/07/2025",
             "iconName": "Facebook",
             "iconDescription": "Lorem ipsum odor amet, consectetuer adipiscing elit. Blandit auctor tellus donec faucibus duis.",
             "iconScreenshot": "nom-du-projet.webp",
@@ -59,6 +67,7 @@
         },
         {
             "id": "003",
+            "iconDate": "09/10/2023",
             "iconName": "Facebook",
             "iconDescription": "Lorem ipsum odor amet, consectetuer adipiscing elit. Blandit auctor tellus donec faucibus duis.",
             "iconScreenshot": "nom-du-projet.webp",

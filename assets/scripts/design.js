@@ -10,12 +10,18 @@ export const getDesignData = () => {
     fetch('https://raw.githubusercontent.com/jhauck67/TheDev-sToolkit/refs/heads/main/assets/data/design.json')
     .then(response => response.json())
     .then(data => {
-        const colorsWithType = data.colors.map(item => ({ ...item, type: "color" }));
-        const fontsWithType = data.fonts.map(item => ({ ...item, type: "font" }));
-        const iconsWithType = data.icons.map(item => ({ ...item, type: "icon" }));
+        const colorsWithType = data.colors.map(item => ({ ...item, type: "color", itemName: item.paletteName }));
+        const fontsWithType = data.fonts.map(item => ({ ...item, type: "font", itemName: item.fontName }));
+        const iconsWithType = data.icons.map(item => ({ ...item, type: "icon", itemName: item.iconName }));
         allDesigns = [...colorsWithType, ...fontsWithType, ...iconsWithType];
-        console.log(allDesigns);
-        cardGenerator(allDesigns, cardContainer);
+        // Réinitialisation de l'affichage
+        cardContainer.innerHTML = "";
+        // Filtrage et Triage des résultats
+        const designsResult = sortAndFilterDesigns();
+        // Vérification des résultats
+        valueVerificator(designsResult);
+        // Génération des cards "résultat"
+        cardGenerator(designsResult, cardContainer);
         
     })
     .catch(error => console.error('Erreur de chargement du JSON : ', error));
@@ -37,8 +43,9 @@ const searchBar = document.getElementById('search-bar');
 
 //* ---------- Filtre par language --------------
 const filterButtons = document.querySelector('.filter-buttons');
-const htmlFilterButton = document.getElementById('html-filter');
-const javascriptFilterButton = document.getElementById('javascript-filter');
+const colorsFilterButton = document.getElementById('colors-filter');
+const fontsFilterButton = document.getElementById('fonts-filter');
+const iconsFilterButton = document.getElementById('icons-filter');
 
 //* ------------------ Tri ----------------------
 const sortSelect = document.getElementById('sort-select');
@@ -153,6 +160,9 @@ const cardGenerator = (designArray, container) => {
                     // ¤.name
                     const name = elementCreator('div', 'name');
                     name.textContent = item.iconName;
+                    // ¤.description
+                    const description = elementCreator('div', 'description');
+                    description.textContent = item.iconDescription;
                     // ¤.buttons-container
                     const buttonsContainer = elementCreator('div', 'buttons-container');
                         // ¤.primary-button
@@ -169,6 +179,7 @@ const cardGenerator = (designArray, container) => {
             buttonsContainer.appendChild(returnBtn);
 
             cardText.appendChild(name);
+            cardText.appendChild(description);
             cardText.appendChild(buttonsContainer);
 
             card.appendChild(cardImg);
@@ -179,3 +190,118 @@ const cardGenerator = (designArray, container) => {
         }
     });
 };
+
+//* ----------- valueVerificator ----------------
+// Vérifie si le résultat de la base de données n'est pas vide.
+// S'il est vide, déclenche un message "Aucun résultat n'a été trouvé".
+const valueVerificator = (designArray) => {
+    if(!designArray || designArray.length === 0) {
+        cardContainer.innerHTML = '';
+        const noResult = elementCreator('div', 'no-result');
+        noResult.textContent = "Aucun snippet n'a été trouvé";
+        cardContainer.appendChild(noResult);
+        return; // On arrête l'éxecution si aucun snippet
+    }
+};
+
+//* --------- sortAndFilterDesigns -------------
+// Passe le résultat de la base de données à travers les filtres et le tri.
+const sortAndFilterDesigns = () => {
+    //(1) Filtre par type
+    let filteredDesigns = [];
+    if(colorsFilterButton.classList.contains('filteredby')) {
+        filteredDesigns = allDesigns.filter(item => {
+            return item.type.includes("color");
+        });
+    } else if(fontsFilterButton.classList.contains('filteredby')) {
+        filteredDesigns = allDesigns.filter(item =>  {
+            return item.type.includes("font");
+        });
+    } else if(iconsFilterButton.classList.contains('filteredby')) {
+        filteredDesigns = allDesigns.filter(item =>  {
+            return item.type.includes("icon");
+        });
+    } else {
+        filteredDesigns = allDesigns;
+    };
+
+    //(2) Filtre par Search Bar
+    let searchedDesigns = [];
+    searchedDesigns = filteredDesigns.filter(item => {
+        const matchesPaletteName = (item.paletteName || "").toLowerCase().includes(searchBar.value.toLowerCase());
+        const matchesPaletteType = (item.type || "").toLowerCase().includes(searchBar.value.toLowerCase());
+        const matchesFontName = (item.fontName || "").toLowerCase().includes(searchBar.value.toLowerCase());
+        const matchesFontDescription = (item.fontDescription || "").toLowerCase().includes(searchBar.value.toLowerCase());
+        const matchesFontType = (item.type || "").toLowerCase().includes(searchBar.value.toLowerCase());
+        const matchesIconName = (item.iconName || "").toLowerCase().includes(searchBar.value.toLowerCase());
+        const matchesIconDescription = (item.iconDescription || "").toLowerCase().includes(searchBar.value.toLowerCase());
+        const matchesIconType = (item.type || "").toLowerCase().includes(searchBar.value.toLowerCase());
+        return matchesPaletteName || matchesPaletteType || matchesFontName || matchesFontDescription || matchesFontType || matchesIconName || matchesIconDescription || matchesIconType;
+    });
+
+    //(3) Sélecteur de tri
+    let sortedDesigns = [];
+    if(sortSelect.value === "alphabet") {
+        sortedDesigns = searchedDesigns.sort((a, b) => {
+            return a.itemName.localeCompare(b.itemName);
+        });
+    } else {
+        sortedDesigns = searchedDesigns
+    };
+    return sortedDesigns;
+};
+
+//* ------------ refreshDisplay -----------------
+// Rafraichit l'affichage, évite d'avoir à appeler la base de données à chaque fois.
+const refreshDisplay = () => {
+    cardContainer.innerHTML = "";
+    const designsResult = sortAndFilterDesigns();
+    valueVerificator(designsResult);
+    cardGenerator(designsResult, cardContainer);
+};
+
+// EVENT LISTENER                                
+//* ---------- Barre de recherche ---------------
+// Déclenche un filtrage via ce qui est tapé dans la barre de recherche.
+searchBar.addEventListener('input', () => {
+    refreshDisplay();
+});
+
+//* ---------- Filtre par type --------------
+// Déclenche un filtrage via les boutons de type dans la "filter-sort-bar".
+filterButtons.addEventListener('click', (e) => {
+    if(e.target.closest('button') == colorsFilterButton) {
+        colorsFilterButton.classList.toggle('filteredby');
+        fontsFilterButton.classList.remove('filteredby');
+        iconsFilterButton.classList.remove('filteredby');
+    } else if(e.target.closest('button') == fontsFilterButton) {
+        fontsFilterButton.classList.toggle('filteredby');
+        colorsFilterButton.classList.remove('filteredby');
+        iconsFilterButton.classList.remove('filteredby');
+    } else if(e.target.closest('button') == iconsFilterButton) {
+        iconsFilterButton.classList.toggle('filteredby');
+        colorsFilterButton.classList.remove('filteredby');
+        fontsFilterButton.classList.remove('filteredby');
+    };
+    refreshDisplay();
+});
+
+//* -------- Tri par l'input select -------------
+// Déclenche un tri par date, ordre alphabetique ou catégorie.
+sortSelect.addEventListener('change', () => {
+    refreshDisplay();
+});
+
+//* -------- Grid ou Inline Display -------------
+// Déclenche une modification de la disposition des cards.
+displayButtons.addEventListener('click', (e) => {
+    if(e.target.closest('button') == gridDisplayButton) {
+        gridDisplayButton.classList.add('displayed');
+        inlineDisplayButton.classList.remove('displayed');
+        cardContainer.classList.remove('inline-display');
+    } else if(e.target.closest('button') == inlineDisplayButton) {
+        inlineDisplayButton.classList.add('displayed');
+        gridDisplayButton.classList.remove('displayed');
+        cardContainer.classList.add('inline-display');
+    };
+});

@@ -1,7 +1,11 @@
 .card {
-  width: clamp(250px, 100%, 300px);
-  aspect-ratio: 3/4;
+  width: clamp(270px, 100%, 300px);
+  height: 400px;
   position: relative;
+}
+.inline-display .card {
+  height: 150px;
+  align-items: flex-start;
 }
 
 /** Buttons-container */
