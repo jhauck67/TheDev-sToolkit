@@ -1,0 +1,46 @@
+.card {
+  width: clamp(250px, 100%, 300px);
+  aspect-ratio: 3/4;
+  position: relative;
+}
+
+/** Buttons-container */
+.buttons-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-m);
+  position: absolute;
+  bottom: var(--spacing-l);
+  left: var(--spacing-l);
+}
+.button {
+  padding: var(--spacing-xs) var(--spacing-s);
+  border-radius: var(--radius-m);
+  transition: all var(--transition-normal);
+}
+.button:hover {
+  transform: scale(1.05);
+}
+.button:active {
+  transform: scale(0.95);
+}
+.primary-button {
+  background: var(--primary-color);
+  color: var(--neutral5);
+}
+.secondary-button {
+  border: 1px solid var(--color-accent-primary);
+  color: var(--color-accent-primary);
+}
+
+/** Colors Cards */
+.colors-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+.color {
+  padding: 0.1rem var(--spacing-xs);
+  border-radius: var(--radius-m);
+}
