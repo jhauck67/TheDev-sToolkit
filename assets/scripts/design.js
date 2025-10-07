@@ -10,9 +10,9 @@ export const getDesignData = () => {
     fetch('https://raw.githubusercontent.com/jhauck67/TheDev-sToolkit/refs/heads/main/assets/data/design.json')
     .then(response => response.json())
     .then(data => {
-        const colorsWithType = data.colors.map(item => ({ ...item, type: "color", itemName: item.paletteName }));
-        const fontsWithType = data.fonts.map(item => ({ ...item, type: "font", itemName: item.fontName }));
-        const iconsWithType = data.icons.map(item => ({ ...item, type: "icon", itemName: item.iconName }));
+        const colorsWithType = data.colors.map(item => ({ ...item, type: "color", itemName: item.paletteName, itemDate: item.paletteDate }));
+        const fontsWithType = data.fonts.map(item => ({ ...item, type: "font", itemName: item.fontName, itemDate: item.fontDate }));
+        const iconsWithType = data.icons.map(item => ({ ...item, type: "icon", itemName: item.iconName, itemDate: item.iconDate }));
         allDesigns = [...colorsWithType, ...fontsWithType, ...iconsWithType];
         // Réinitialisation de l'affichage
         cardContainer.innerHTML = "";
@@ -49,6 +49,9 @@ const iconsFilterButton = document.getElementById('icons-filter');
 
 //* ------------------ Tri ----------------------
 const sortSelect = document.getElementById('sort-select');
+
+//* ------------ Copier le code -----------------
+const svgCopyBtn = document.querySelector('.svg-copy-button');
 
 // FUNCTIONS                                     
 //* ------------- cardGenerator -----------------
@@ -125,7 +128,9 @@ const cardGenerator = (designArray, container) => {
                     // ¤.buttons-container
                     const buttonsContainer = elementCreator('div', 'buttons-container');
                         // ¤.primary-button
-                        const copyBtn = elementCreator('div', 'primary-button');
+                        const copyBtn = elementCreator('a', 'primary-button');
+                        copyBtn.setAttribute('href', `${item.fontLink}`);
+                        copyBtn.setAttribute('target', '_blank');
                         copyBtn.classList.add('button');
                         copyBtn.textContent = "Télécharger";
                         // ¤.secondary-button
@@ -167,6 +172,7 @@ const cardGenerator = (designArray, container) => {
                     const buttonsContainer = elementCreator('div', 'buttons-container');
                         // ¤.primary-button
                         const copyBtn = elementCreator('div', 'primary-button');
+                        copyBtn.classList.add('svg-copy-button');
                         copyBtn.classList.add('button');
                         copyBtn.textContent = "Copier SVG";
                         // ¤.secondary-button
@@ -241,7 +247,13 @@ const sortAndFilterDesigns = () => {
 
     //(3) Sélecteur de tri
     let sortedDesigns = [];
-    if(sortSelect.value === "alphabet") {
+    if(sortSelect.value === "created") {
+        sortedDesigns = searchedDesigns.sort((a, b) => {
+            const dateA = dateConverter(a.itemDate);
+            const dateB = dateConverter(b.itemDate);
+            return dateB - dateA;
+        })
+    } else if(sortSelect.value === "alphabet") {
         sortedDesigns = searchedDesigns.sort((a, b) => {
             return a.itemName.localeCompare(b.itemName);
         });
@@ -259,6 +271,20 @@ const refreshDisplay = () => {
     valueVerificator(designsResult);
     cardGenerator(designsResult, cardContainer);
 };
+
+//* --------------- copyCode --------------------
+// Copie le code svg correspondant à l'icône cliquée.
+const copyCode = (copyButton) => {
+    const codeToCopy = item.iconSVG;
+    navigator.clipboard.writeText(codeToCopy)
+    .then(() => {
+        console.log('Code copié');
+    })
+    .catch(err => {
+        console.error('Erreur lors de la copie', err);
+    });
+};
+
 
 // EVENT LISTENER                                
 //* ---------- Barre de recherche ---------------
@@ -304,4 +330,36 @@ displayButtons.addEventListener('click', (e) => {
         gridDisplayButton.classList.remove('displayed');
         cardContainer.classList.add('inline-display');
     };
+});
+
+//* ----- Copier les couleurs ou le svg ---------
+// Quand on clique sur l'icône "Copier", les couleurs ou le code SVG sont copiés dans le presse papier.
+cardContainer.addEventListener('click', (e) => {
+    // Copie SVG
+    if (e.target.classList.contains('svg-copy-button')) {
+        const card = e.target.closest('.card');
+        const itemName = card.querySelector('.name').textContent;
+        const item = allDesigns.find(d => d.iconName === itemName);
+
+        if (item) {
+            navigator.clipboard.writeText(item.iconSVG)
+                .then(() => console.log(`Code SVG copié : ${item.iconName}`))
+                .catch(err => console.error('Erreur lors de la copie', err));
+        }
+    }
+
+    // Copie Palette de couleurs 🎨
+    if (e.target.classList.contains('primary-button') && e.target.textContent === 'Copier') {
+        const card = e.target.closest('.card');
+        const itemName = card.querySelector('.name').textContent;
+        const item = allDesigns.find(d => d.paletteName === itemName);
+
+        if (item && item.paletteColor) {
+            // Copie tous les codes couleur, séparés par un espace
+            const colorsString = item.paletteColor.join(' ');
+            navigator.clipboard.writeText(colorsString)
+                .then(() => console.log(`Palette copiée : ${colorsString}`))
+                .catch(err => console.error('Erreur lors de la copie', err));
+        }
+    }
 });

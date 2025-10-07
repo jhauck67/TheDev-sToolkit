@@ -3,6 +3,9 @@
   height: 400px;
   position: relative;
 }
+.card:hover {
+  transform: scale(1);
+}
 .inline-display .card {
   height: 150px;
   align-items: flex-start;
@@ -30,6 +33,9 @@
 }
 .primary-button {
   background: var(--primary-color);
+  color: var(--neutral5);
+}
+a.primary-button {
   color: var(--neutral5);
 }
 .secondary-button {
